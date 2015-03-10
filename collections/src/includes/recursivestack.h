@@ -22,7 +22,6 @@ namespace sktech{
 		recursive_stack<T> &operator=(const recursive_stack<T> &otherStack);
 		T &operator[](unsigned n);
 	private:
-		//TODO remove node
 		bool down(node<T> *child, T *nextVal);
 		T &down(node<T> *child, unsigned index, unsigned i);
 		T *up(node<T> *child);

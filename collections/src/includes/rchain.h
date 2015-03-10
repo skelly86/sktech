@@ -3,6 +3,9 @@
  */
 #ifndef RCHAIN_H_
 #define RCHAIN_H_
+// TODO this to NULL on the other header files
+#ifndef NULL
+#define NULL 0
 #include"node.h"
 namespace sktech{
 	template<class T>
@@ -11,7 +14,7 @@ namespace sktech{
 		rchain();
 		rchain(unsigned newSize);
 		rchain(unsigned newSize, ...);
-		rchain(const rchain &otherrchain);
+		rchain(const rchain &otherChain);
 		virtual ~rchain();
 		const T &pushBack(const T &newVal)const;
 		const T &pushFront(const T &newVal)const;
@@ -19,14 +22,16 @@ namespace sktech{
 		const T &peekBack()const;
 		T popFront();
 		T popBack();
-		const unsigned Size()const;
-		const unsigned Max()const;
+		const size_t Size()const;
+		const size_t Max()const;
 		bool full()const;
 		bool empty()const;
-		// Array index operator
+		T &operator=(const T &otherChain)
 		T &operator[](unsigned n);
 	private:
-		unsigned size, max;
+		T &left(node<T> *nextNode, unsigned i, unsigned index);
+		T &right(node<T> *nextNode, unsigned i, unsigned index);
+		size_t size, max;
 		node<T> *firstP;
 		node<T> *lastP;
 	};
