@@ -14,7 +14,7 @@ namespace sktech{
 		rchain();
 		rchain(unsigned newSize);
 		rchain(unsigned newSize, ...);
-		rchain(const rchain &otherChain);
+		rchain(const rchain<T> &otherChain);
 		virtual ~rchain();
 		const T &pushBack(const T &newVal)const;
 		const T &pushFront(const T &newVal)const;
@@ -26,7 +26,7 @@ namespace sktech{
 		const size_t Max()const;
 		bool full()const;
 		bool empty()const;
-		T &operator=(const T &otherChain)
+		T &operator=(const rchain<T> &otherChain)
 		T &operator[](unsigned n);
 	private:
 		T &left(node<T> *nextNode, unsigned i, unsigned index);
