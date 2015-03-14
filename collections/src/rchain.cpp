@@ -36,8 +36,10 @@ namespace sktech{
 	template<class T>
 	bool rchain<T>::empty()const;
 	template<class T>
-	T &rchain<T>::operator=(const T &otherChain){
-	}
+	rchain<T> &rchain<T>::operator=(const rchain<T> &otherChain){
+		if(this != *otherChain){
+		}
+		return this;}
 	template<class T>
 	T &rchain<T>::operator[](unsigned n){
 		if(n > size)
@@ -48,11 +50,19 @@ namespace sktech{
 	template<class T>
 	T &rchain<T>::left(node<T> *nextNode, unsigned i, unsigned index){
 		if(i == index)
-			return nextNode->val;
+			return *(nextNode->val);
 		return left(nextNode->leftP, i-1, index);}
 	template<class T>
 	T &rchain<T>::right(node<T> *nextNode, unsigned i, unsigned index){
 		if(i == index)
-			return nextNode->val;
+			return *(nextNode->val);
 		return right(nextNode->rightP, i+1, index);}
+	template<class T>
+	bool rchain<T>::add(node<T> *addPoint, const T &newVal, bool first){
+		if(size == max)
+			return false;
+		node<T> *newNode = new node<T>(newVal);
+		if(first){
+			firstP->leftP = newNode;}
+		return true;}
 }

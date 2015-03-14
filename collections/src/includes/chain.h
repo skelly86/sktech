@@ -4,7 +4,6 @@
  *  Created on: Feb 9, 2015
  *      Author: shauna
  */
-#endif
 #ifndef CHAIN_H_
 #define CHAIN_H_
 #include"node.h"
