@@ -21,8 +21,9 @@ namespace sktech {
 	:size(0), max(0), firstP(NULL), lastP(NULL){
 		va_list newChain;
 		va_start(newChain, newSize);
-		for(int i = 0; i < size; i++)
-			pushBack(va_arg(newChain, T));}
+		for(int i = 0; i < newSize; i++)
+			pushBack(va_arg(newChain, T));
+		va_end(newChain);}
 	template<class T>
 	chain<T>::chain(const chain &otherChain)
 	:size(0), max(otherChain.max), firstP(NULL), lastP(NULL){
