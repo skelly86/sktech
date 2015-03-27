@@ -7,7 +7,7 @@
 #include"node.h"
 namespace sktech{
 	template<class T>
-	class rchain {
+	class rchain{
 	public:
 		rchain();
 		rchain(unsigned new_size);
@@ -15,8 +15,8 @@ namespace sktech{
 		rchain(const rchain<T> &otherChain);
 		virtual ~rchain();
 		void clear();
-		const T &push_back(const T &newVal)const;
-		const T &push_front(const T &newVal)const;
+		void push_back(const T &newVal)const;
+		void push_front(const T &newVal)const;
 		const T &front()const;
 		const T &back()const;
 		void pop_front();

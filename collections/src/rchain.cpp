@@ -31,17 +31,13 @@ namespace sktech{
 			pop_front();
 			clear();}}
 	template<class T>
-	const T &rchain<T>::push_back(const T &newVal)const{
-		if(!full){
-			add(lastP, newVal, false);
-			return back();}
-		return newVal;}
+	void rchain<T>::push_back(const T &newVal)const{
+		if(!full)
+			add(lastP, newVal, false);}
 	template<class T>
-	const T &rchain<T>::push_front(const T &newVal)const{
-		if(!full()){
-			add(firstP, newVal, true);
-			return front();}
-		return newVal;}
+	void rchain<T>::push_front(const T &newVal)const{
+		if(!full())
+			add(firstP, newVal, true);}
 	template<class T>
 	const T &rchain<T>::front()const{
 		return firstP->val;}
