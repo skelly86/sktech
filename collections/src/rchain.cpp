@@ -27,12 +27,14 @@ namespace sktech{
 		clear();}
 	template<class T>
 	void rchain<T>::clear(){
-		if(!empty()){
+		if(empty())
+			max = 0;
+		else{
 			pop_front();
 			clear();}}
 	template<class T>
 	void rchain<T>::push_back(const T &newVal)const{
-		if(!full)
+		if(!full())
 			add(lastP, newVal, false);}
 	template<class T>
 	void rchain<T>::push_front(const T &newVal)const{
