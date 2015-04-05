@@ -9,6 +9,7 @@
 #endif
 #ifndef NODE_H_
 #define NODE_H_
+#include<cstdarg>
 namespace sktech{
 	template<class T>
 	struct node{

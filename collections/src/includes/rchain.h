@@ -3,7 +3,6 @@
  */
 #ifndef RCHAIN_H_
 #define RCHAIN_H_
-#include<cstdarg>
 #include"node.h"
 namespace sktech{
 	template<class T>
