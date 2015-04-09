@@ -53,10 +53,10 @@ namespace sktech{
 	void rchain<T>::pop_back(){
 		remove(lastP, false);}
 	template<class T>
-	const size_t rchain<T>::size()const{
+	const unsigned long rchain<T>::size()const{
 		return _size;}
 	template<class T>
-	const size_t rchain<T>::Max()const{
+	const unsigned long rchain<T>::Max()const{
 		return max;}
 	template<class T>
 	bool rchain<T>::full()const{
@@ -72,7 +72,7 @@ namespace sktech{
 			grow(otherChain._size, otherChain);}
 		return *this;}
 	template<class T>
-	T &rchain<T>::operator[](unsigned n){
+	T &rchain<T>::operator[](unsigned long n){
 		if(n > _size)
 			throw n;
 		if(n > _size/2)
@@ -92,12 +92,12 @@ namespace sktech{
 		return true;
 	}
 	template<class T>
-	T &rchain<T>::left(node<T> *nextNode, unsigned i, unsigned index){
+	T &rchain<T>::left(node<T> *nextNode, unsigned long i, unsigned long index){
 		if(i == index)
 			return *(nextNode->val);
 		return left(nextNode->leftP, i-1, index);}
 	template<class T>
-	T &rchain<T>::right(node<T> *nextNode, unsigned i, unsigned index){
+	T &rchain<T>::right(node<T> *nextNode, unsigned long i, unsigned long index){
 		if(i == index)
 			return *(nextNode->val);
 		return right(nextNode->rightP, i+1, index);}

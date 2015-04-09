@@ -102,10 +102,10 @@ namespace sktech {
 		// return temp
 		return temp;}
 	template<class T>
-	const unsigned chain<T>::size()const{
+	const unsigned long chain<T>::size()const{
 		return _size;}
 	template<class T>
-	const unsigned chain<T>::Max()const{
+	const unsigned long chain<T>::Max()const{
 		return max;}
 	template<class T>
 	bool chain<T>::full()const{
@@ -115,7 +115,7 @@ namespace sktech {
 		return _size == 0;}
 	// Array index operator
 	template<class T>
-	T &chain<T>::operator[](unsigned n) {
+	T &chain<T>::operator[](unsigned long n) {
 		int index = 0;
 		// check if in range
 		if(n >= _size)

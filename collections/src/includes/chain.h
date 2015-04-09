@@ -6,9 +6,8 @@
  */
 #ifndef CHAIN_H_
 #define CHAIN_H_
-#include"node.h"
+#include"node.cpp"
 namespace sktech {
-
 	/*
 	 * Type: chain<T>
 	 * Members:
@@ -36,14 +35,13 @@ namespace sktech {
 		const T &back()const;
 		T pop_front();
 		T pop_back();
-		const unsigned size()const;
-		const unsigned Max()const;
+		const unsigned long size()const;
+		const unsigned long Max()const;
 		bool full()const;
 		bool empty()const;
-		// Array index operator
-		T &operator[](unsigned n);
+		T & operator [](unsigned long n);
 	private:
-		size_t _size, max;
+		unsigned long _size, max;
 		node<T> *firstP;
 		node<T> *lastP;
 	};
