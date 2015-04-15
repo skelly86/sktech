@@ -49,12 +49,12 @@ namespace sktech{
 	const T &rchain<T>::back()const{
 		return lastP->val;}
 	template<class T>
-	void rchain<T>::pop_front(){
+	T rchain<T>::pop_front(){
 		T temp = empty() ? T() : front();
 		remove(firstP, true);)
 		return temp;}
 	template<class T>
-	void rchain<T>::pop_back(){
+	T rchain<T>::pop_back(){
 		T temp = empty() ? T() : back();
 		remove(lastP, false);
 		return back();}
