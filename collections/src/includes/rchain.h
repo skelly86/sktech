@@ -14,12 +14,12 @@ namespace sktech{
 		rchain(const rchain<T> &otherChain);
 		virtual ~rchain();
 		void clear();
-		void push_back(const T &newVal)const;
-		void push_front(const T &newVal)const;
+		const T &push_back(const T &newVal)const;
+		const T &push_front(const T &newVal)const;
 		const T &front()const;
 		const T &back()const;
-		void pop_front();
-		void pop_back();
+		T pop_front();
+		T pop_back();
 		const unsigned long size()const;
 		const unsigned long Max()const;
 		bool full()const;

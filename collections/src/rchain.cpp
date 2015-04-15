@@ -33,13 +33,15 @@ namespace sktech{
 			pop_front();
 			clear();}}
 	template<class T>
-	void rchain<T>::push_back(const T &newVal)const{
+	const T &rchain<T>::push_back(const T &newVal)const{
 		if(!full())
-			add(lastP, newVal, false);}
+			add(lastP, newVal, false);
+		return back();}
 	template<class T>
-	void rchain<T>::push_front(const T &newVal)const{
+	const T &rchain<T>::push_front(const T &newVal)const{
 		if(!full())
-			add(firstP, newVal, true);}
+			add(firstP, newVal, true);
+		return front();}
 	template<class T>
 	const T &rchain<T>::front()const{
 		return firstP->val;}
@@ -48,10 +50,14 @@ namespace sktech{
 		return lastP->val;}
 	template<class T>
 	void rchain<T>::pop_front(){
-		remove(firstP, true);)}
+		T temp = empty() ? T() : front();
+		remove(firstP, true);)
+		return temp;}
 	template<class T>
 	void rchain<T>::pop_back(){
-		remove(lastP, false);}
+		T temp = empty() ? T() : back();
+		remove(lastP, false);
+		return back();}
 	template<class T>
 	const unsigned long rchain<T>::size()const{
 		return _size;}

@@ -50,7 +50,7 @@ namespace sktech {
 			lastP = lastP->rightP;}
 		// Increment _size
 		_size++;
-		return newVal;}
+		return front();}
 	template<class T>
 	const T &chain<T>::push_front(const T &newVal)const{
 		//set overflow conditions
@@ -64,7 +64,7 @@ namespace sktech {
 			lastP = lastP->leftP;}
 		// Increment _size
 		_size++;
-		return newVal;}
+		return front();}
 	template<class T>
 	const T &chain<T>::front()const{
 		return firstP->val;}
@@ -75,11 +75,11 @@ namespace sktech {
 	T chain<T>::pop_front() {
 		T temp;	//temporary memory for pop
 		if(!empty()){
+			// assign value in node to temp
+			temp = front();
 			// detach front node
 			node<T> *tempNode = firstP;
 			firstP = firstP->rightP;
-			// assign value in node to temp
-			temp = *(tempNode->val);
 			// destroy node
 			delete tempNode;
 			//decrement _size
@@ -90,11 +90,11 @@ namespace sktech {
 	T chain<T>::pop_back() {
 		T temp;	//temporary memory for pop
 		if(!empty()){
+			// assign value in node to temp
+			temp = back();
 			// detach front node
 			node<T> *tempNode = lastP;
 			lastP = lastP->rightP;
-			// assign value in node to temp
-			temp = *(tempNode->val);
 			// destroy node
 			delete tempNode;
 			//decrement _size
