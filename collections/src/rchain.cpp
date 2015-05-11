@@ -82,7 +82,7 @@ namespace sktech{
 		if(n > _size)
 			throw n;
 		if(n > _size/2)
-			return left(lastP, _size-1, n);
+			return left(lastP, _size - 1, n);
 		return right(firstP, 0, n);}
 	template<class T>
 	bool rchain<T>::grow(unsigned _size, const rchain<T> &otherChain = NULL, unsigned index = 0){
@@ -135,6 +135,6 @@ namespace sktech{
 			delete firstP->leftP;}
 		else{
 			lastP = lastP->leftP;
-			delete lastP->rightP;}}
+			delete lastP->rightP;}
 		return true;}
 }
