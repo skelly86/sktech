@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 9, 2015
  *      Author: shauna
+ *      TODO: Utilize inheritance within lists
  */
 #ifndef CHAIN_CPP_
 #define CHAIN_CPP_
@@ -65,54 +66,6 @@ namespace sktech {
 		// Increment _size
 		_size++;
 		return front();}
-	template<class T>
-	const T &chain<T>::front()const{
-		return firstP->val;}
-	template<class T>
-	const T &chain<T>::back()const{
-		return lastP->val;}
-	template<class T>
-	T chain<T>::pop_front() {
-		T temp;	//temporary memory for pop
-		if(!empty()){
-			// assign value in node to temp
-			temp = front();
-			// detach front node
-			node<T> *tempNode = firstP;
-			firstP = firstP->rightP;
-			// destroy node
-			delete tempNode;
-			//decrement _size
-			_size--;}
-		// return temp
-		return temp;}
-	template<class T>
-	T chain<T>::pop_back() {
-		T temp;	//temporary memory for pop
-		if(!empty()){
-			// assign value in node to temp
-			temp = back();
-			// detach front node
-			node<T> *tempNode = lastP;
-			lastP = lastP->rightP;
-			// destroy node
-			delete tempNode;
-			//decrement _size
-			_size--;}
-		// return temp
-		return temp;}
-	template<class T>
-	const unsigned long chain<T>::size()const{
-		return _size;}
-	template<class T>
-	const unsigned long chain<T>::Max()const{
-		return max;}
-	template<class T>
-	bool chain<T>::full()const{
-		return max > 0 && _size == max;}
-	template<class T>
-	bool chain<T>::empty()const{
-		return _size == 0;}
 	// Array index operator
 	template<class T>
 	T &chain<T>::operator[](unsigned long n) {

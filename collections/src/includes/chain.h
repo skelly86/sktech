@@ -6,9 +6,9 @@
  */
 #ifndef CHAIN_H_
 #define CHAIN_H_
-#include"node.cpp"
+#include"basic_chain.cpp"
 namespace sktech {
-	/*
+	/* TODO: Utilize inheritance within lists
 	 * Type: chain<T>
 	 * Members:
 	 *	firstP:Pointer to node<T>:points to address of first node
@@ -22,28 +22,16 @@ namespace sktech {
 	 * 	pop_back():T:removes node in back of chain, sends old value to user
 	 */
 	template<class T>
-	class chain {
+	class chain : public basic_chain {
 	public:
 		chain();
 		chain(unsigned new_size);
 		chain(unsigned new_size, ...);
 		chain(const chain &otherChain);
 		virtual ~chain();
-		const T &push_back(const T &newVal)const;
-		const T &push_front(const T &newVal)const;
-		const T &front()const;
-		const T &back()const;
-		T pop_front();
-		T pop_back();
-		const unsigned long size()const;
-		const unsigned long Max()const;
-		bool full()const;
-		bool empty()const;
-		T & operator [](unsigned long n);
-	private:
-		unsigned long _size, max;
-		node<T> *firstP;
-		node<T> *lastP;
+		void clear();
+		chain &operator=(const chain &otherChain);
+		T &operator[](unsigned long n);
 	};
 }
 #endif /* CHAIN_H_ */

@@ -1,5 +1,5 @@
 /*
- *
+ * TODO: Utilize inheritance within lists
  */
 #ifndef RCHAIN_CPP_
 #define RCHAIN_CPP_
@@ -33,49 +33,11 @@ namespace sktech{
 			pop_front();
 			clear();}}
 	template<class T>
-	const T &rchain<T>::push_back(const T &newVal)const{
-		if(!full())
-			add(lastP, newVal, false);
-		return back();}
-	template<class T>
-	const T &rchain<T>::push_front(const T &newVal)const{
-		if(!full())
-			add(firstP, newVal, true);
-		return front();}
-	template<class T>
-	const T &rchain<T>::front()const{
-		return firstP->val;}
-	template<class T>
-	const T &rchain<T>::back()const{
-		return lastP->val;}
-	template<class T>
-	T rchain<T>::pop_front(){
-		T temp = empty() ? T() : front();
-		remove(firstP, true);)
-		return temp;}
-	template<class T>
-	T rchain<T>::pop_back(){
-		T temp = empty() ? T() : back();
-		remove(lastP, false);
-		return back();}
-	template<class T>
-	const unsigned long rchain<T>::size()const{
-		return _size;}
-	template<class T>
-	const unsigned long rchain<T>::Max()const{
-		return max;}
-	template<class T>
-	bool rchain<T>::full()const{
-		return max > 0 && max == _size;}
-	template<class T>
-	bool rchain<T>::empty()const{
-		return _size == 0;}
-	template<class T>
 	rchain<T> &rchain<T>::operator=(const rchain<T> &otherChain){
 		//TODO Implement this operator
 		if(this != *otherChain){
 			clear();
-			grow(otherChain._size, otherChain);}
+			grow(basic_chain<T>::otherChain._size, otherChain);}
 		return *this;}
 	template<class T>
 	T &rchain<T>::operator[](unsigned long n){
@@ -107,34 +69,11 @@ namespace sktech{
 		if(i == index)
 			return *(nextNode->val);
 		return right(nextNode->rightP, i+1, index);}
-	template<class T>
-	bool rchain<T>::add(node<T> *addPoint, const T &newVal, bool first){
-		if(full())
-			return false;
-		node<T> *newNode = new node<T>(newVal);
-		if(empty())
-			firstP = lastP = newNode;
-		else{
-			if(first)
-				firstP = firstP->leftP = newNode;
-			else
-				lastP = lastP->rightP = newNode;}
-		return true;}
+
 	template<class T>
 	bool rchain<T>::varAdd(va_list &newChain, unsigned new_size, unsigned index = 0){
 		if(index == new_size)
 			return true;
 		push_back(va_arg(newChain,T));
 		return varAdd(newChain, new_size, index+1);}
-	template<class T>
-	bool rchain<T>::remove(node<T> *deletePoint, bool first){
-		if(empty())
-			return false;
-		if(first){
-			firstP = firstP->rightP;
-			delete firstP->leftP;}
-		else{
-			lastP = lastP->leftP;
-			delete lastP->rightP;}
-		return true;}
 }
