@@ -13,8 +13,8 @@ namespace sktech {
 	 * Members:
 	 *	firstP:Pointer to node<T>:points to address of first node
 	 *	lastP:Pointer to node<T>:points to address of last node
-	 *	_size:Unsigned Integer:current _size of the chain
-	 * 	max:Unsigned Integer:optional maximum _size
+	 *	_size:Unsigned Integer:current size of the chain
+	 * 	max:Unsigned Integer:optional maximum size
 	 * Domain:
 	 * 	push_front(val:Constant T Ref):Constant T Ref:pushes new value to front of chain
 	 * 	push_back(val:Constant T Ref):Constant T Ref:pushes new value to back of chain
@@ -27,10 +27,10 @@ namespace sktech {
 		chain();
 		chain(unsigned new_size);
 		chain(unsigned new_size, ...);
-		chain(const chain &otherChain);
+		chain(const chain<T> &otherChain);
 		virtual ~chain();
 		void clear();
-		chain &operator=(const chain &otherChain);
+		chain &operator=(const chain<T> &otherChain);
 		T &operator[](unsigned long n);
 	};
 }

@@ -6,21 +6,22 @@
 #include"includes/rchain.h"
 namespace sktech{
 	template<class T>
-	rchain<T>::rchain()
-	:max(0), _size(0), firstP(NULL), lastP(NULL){}
+	rchain<T>::rchain() {
+		basic_chain<T>::basic_chain();}
 	template<class T>
-	rchain<T>::rchain(unsigned new_size):max(0),_size(0){
+	rchain<T>::rchain(unsigned new_size) {
+		basic_chain<T>::basic_chain();
 		grow(new_size);}
 	template<class T>
-	rchain<T>::rchain(unsigned new_size, ...)
-	:_size(0), max(0), firstP(NULL), lastP(NULL){
+	rchain<T>::rchain(unsigned new_size, ...) {
+		basic_chain<T>::basic_chain();
 		va_list newChain;
 		va_start(newChain, new_size);
 		varAdd(newChain, new_size);
 		va_end(newChain);}
 	template<class T>
-	rchain<T>::rchain(const rchain<T> &otherChain)
-	:max(0), _size(0){
+	rchain<T>::rchain(const rchain<T> &otherChain) {
+		basic_chain<T>::basic_chain();
 		grow(otherChain._size, otherChain);}
 	template<class T>
 	rchain<T>::~rchain(){

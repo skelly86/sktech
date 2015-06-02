@@ -6,7 +6,7 @@
 #include"basic_chain.h"
 namespace sktech {
 	template<class T>
-	basic_chain::basic_chain()
+	basic_chain<T>::basic_chain()
 	:_size(0), max(0), firstP(NULL), lastP(NULL) {}
 	// TODO reimpliment push functions
 	template<class T>
