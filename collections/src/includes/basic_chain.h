@@ -13,12 +13,6 @@
 namespace sktech {
 	template<class T>
 	class basic_chain {
-	protected:
-		virtual bool add(node<T> *addPoint, const T &newVal, bool first);
-		virtual bool remove(node<T> *deletePoint, bool first);
-		unsigned long int _size, max;
-		node<T> *firstP;
-		node<T> *lastP;
 	public:
 		virtual basic_chain();
 		virtual basic_chain(const basic_chain &otherChain) = 0;
@@ -36,6 +30,12 @@ namespace sktech {
 		virtual const unsigned long Max()const;
 		virtual bool full()const;
 		virtual bool empty()const;
+	protected:
+		virtual bool add(node<T> *addPoint, const T &newVal, bool first);
+		virtual bool remove(node<T> *deletePoint, bool first);
+		unsigned long int _size, max;
+		node<T> *firstP;
+		node<T> *lastP;
 	private:
 	};
 }
