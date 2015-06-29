@@ -14,12 +14,12 @@ namespace sktech {
 		basic_chain<T>::basic_chain();
 	}
 	template<class T>
-	chain<T>::chain(unsigned new_size) {
+	chain<T>::chain(unsigned long int new_size) {
 		basic_chain<T>::basic_chain();
-		while(_size < new_size)
+		while(basic_chain<T>::_size < new_size)
 			push_back(T());}
 	template<class T>
-	chain<T>::chain(unsigned new_size, ...) {
+	chain<T>::chain(unsigned long int new_size, ...) {
 		basic_chain<T>::basic_chain();
 		va_list newChain;
 		va_start(newChain, new_size);
@@ -27,12 +27,12 @@ namespace sktech {
 			push_back(va_arg(newChain, T));
 		va_end(newChain);}
 	template<class T>
-	chain<T>::chain(const chain &otherChain){
+	chain<T>::chain(const basic_chain<T> &otherChain){
 		basic_chain<T>::basic_chain();
 		// counter for index
 		unsigned i = 0;
 		// push otherChain onto this one
-		while(_size < otherChain._size)
+		while(basic_chain<T>::_size < otherChain._size)
 			push_back(otherChain[i++]);}
 	template<class T>
 	chain<T>::~chain() {
@@ -40,19 +40,19 @@ namespace sktech {
 	}
 	template<class T>
 	void chain<T>::clear() {
-		while(!empty())
-			pop_back();
+		while(!basic_chain<T>::empty())
+			basic_chain<T>::pop_back();
 	}
 	template<class T>
-	T &chain<T>::operator[](unsigned long n) {
+	T &chain<T>::operator[](unsigned long int n) {
 		int index = 0;
 		// check if in range
-		if(n >= _size)
+		if(n >= basic_chain<T>::_size)
 			throw n;//new out_of_range("");
 		// check if lower or higher half of chain
-		if(n < (_size/2)){
+		if(n < (basic_chain<T>::_size/2)){
 			// traverse list
-			for(node<T> *traversalP = firstP;
+			for(node<T> *traversalP = basic_chain<T>::firstP;
 					index <= n;
 					traversalP = traversalP->rightP){
 				if(index == n)
@@ -61,9 +61,9 @@ namespace sktech {
 				index++;}
 		}
 		else{
-			index = _size - 1;
+			index = basic_chain<T>::_size - 1;
 			// traverse list
-			for(node<T> *traversalP = lastP;
+			for(node<T> *traversalP = basic_chain<T>::lastP;
 					index <= n;
 					traversalP = traversalP->leftP){
 				if(index == n)

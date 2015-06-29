@@ -25,13 +25,13 @@ namespace sktech {
 	class chain : public basic_chain {
 	public:
 		chain();
-		chain(unsigned new_size);
-		chain(unsigned new_size, ...);
-		chain(const chain<T> &otherChain);
+		chain(unsigned long int new_size);
+		chain(unsigned long int new_size, ...);
+		chain(const basic_chain<T> &otherChain);
 		virtual ~chain();
 		void clear();
-		chain &operator=(const chain<T> &otherChain);
-		T &operator[](unsigned long n);
+		chain &operator=(const basic_chain<T> &otherChain);
+		T &operator[](unsigned long int n);
 	};
 }
 #endif /* CHAIN_H_ */

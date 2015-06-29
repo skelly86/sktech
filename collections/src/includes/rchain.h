@@ -7,18 +7,18 @@
 #include"basic_chain.cpp"
 namespace sktech{
 	template<class T>
-	class rchain : public basic_chain {
+	class rchain : private basic_chain {
 	public:
 		rchain();
-		rchain(unsigned new_size);
-		rchain(unsigned new_size, ...);
-		rchain(const rchain<T> &otherChain);
+		rchain(unsigned long int new_size);
+		rchain(unsigned long int new_size, ...);
+		rchain(const basic_chain<T> &otherChain);
 		virtual ~rchain();
 		void clear();
-		rchain<T> &operator=(const rchain<T> &otherChain)
-		T &operator[](unsigned long n);
+		rchain<T> &operator=(const basic_chain<T> &otherChain)
+		T &operator[](unsigned long int n);
 	private:
-		bool grow(unsigned _size, const rchain<T> &otherChain = NULL,
+		bool grow(unsigned _size, const basic_chain<T> &otherChain = NULL,
 				unsigned long int index = 0);
 		T &left(node<T> *nextNode, unsigned long int i,
 				unsigned long int index);
