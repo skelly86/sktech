@@ -27,13 +27,14 @@ namespace sktech {
 			push_back(va_arg(newChain, T));
 		va_end(newChain);}
 	template<class T>
-	chain<T>::chain(const basic_chain<T> &otherChain){
+	chain<T>::chain(const basic_chain<T> &otherChain) {
 		basic_chain<T>::basic_chain();
 		// counter for index
 		unsigned i = 0;
 		// push otherChain onto this one
 		while(basic_chain<T>::_size < otherChain._size)
-			push_back(otherChain[i++]);}
+			push_back(otherChain[i++]);
+	}
 	template<class T>
 	chain<T>::~chain() {
 		clear();
@@ -50,26 +51,28 @@ namespace sktech {
 		if(n >= basic_chain<T>::_size)
 			throw n;//new out_of_range("");
 		// check if lower or higher half of chain
-		if(n < (basic_chain<T>::_size/2)){
+		if(n < (basic_chain<T>::_size/2)) {
 			// traverse list
 			for(node<T> *traversalP = basic_chain<T>::firstP;
 					index <= n;
-					traversalP = traversalP->rightP){
+					traversalP = traversalP->rightP) {
 				if(index == n)
 					// return the indexed node value
 					return *(traversalP->val);
-				index++;}
+				index++;
+			}
 		}
-		else{
+		else {
 			index = basic_chain<T>::_size - 1;
 			// traverse list
 			for(node<T> *traversalP = basic_chain<T>::lastP;
 					index <= n;
-					traversalP = traversalP->leftP){
+					traversalP = traversalP->leftP) {
 				if(index == n)
 					// return the indexed node value
 					return traversalP->val;
-				index--;}
+				index--;
+			}
 		}
 	}
 }
