@@ -17,7 +17,7 @@ namespace sktech {
 	public:
 		virtual basic_chain();
 		virtual basic_chain(const basic_chain &otherChain) = 0;
-		virtual ~basic_chain();
+		virtual ~basic_chain() = 0;
 		virtual basic_chain operator=(const basic_chain &otherChain) = 0;
 		virtual T &operator[](unsigned long int n) = 0;
 		virtual void clear() = 0;
