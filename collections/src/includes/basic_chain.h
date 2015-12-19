@@ -10,6 +10,7 @@
 #ifndef BASIC_CHAIN_H_
 #define BASIC_CHAIN_H_
 #include"node.cpp"
+#include<cstdarg>
 namespace sktech {
 	template<class T>
 	class basic_chain {

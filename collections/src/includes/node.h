@@ -8,7 +8,6 @@
 #define NODE_H_
 #ifndef NULL
 #define NULL 0
-#include<cstdarg>
 namespace sktech{
 	template<class T>
 	struct node{
