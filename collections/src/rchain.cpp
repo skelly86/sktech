@@ -42,7 +42,6 @@ namespace sktech {
 	}
 	template<class T>
 	rchain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
-		//TODO Implement this operator
 		if(this != *otherChain) {
 			clear();
 			grow(otherChain._size, otherChain);

@@ -15,7 +15,7 @@ namespace sktech{
 		rchain(const basic_chain<T> &otherChain);
 		virtual ~rchain();
 		void clear();
-		rchain<T> &operator=(const basic_chain<T> &otherChain)
+		rchain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	private:
 		bool grow(unsigned _size, const basic_chain<T> &otherChain = NULL,
