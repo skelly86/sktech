@@ -3,7 +3,7 @@
  */
 #ifndef BASIC_CHAIN_CPP_
 #define BASIC_CHAIN_CPP_
-#include"basic_chain.h"
+#include"interfaces/basic_chain.h"
 namespace sktech {
 	template<class T>
 	basic_chain<T>::basic_chain()

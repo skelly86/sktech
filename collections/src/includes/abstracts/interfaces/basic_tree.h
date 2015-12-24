@@ -17,11 +17,11 @@ namespace sktech {
 		virtual basic_tree(const basic_tree &otherTree) = 0;
 		virtual ~basic_tree();
 		virtual void clear() = 0;
-		const unsigned int size() const;
-		virtual void insert(const T & newVal) = 0;
+		virtual const unsigned int size() const;
+		virtual void insert(const T &newVal, const K &newKey) = 0;
 		virtual const T &search(const K &searchKey) = 0;
 	protected:
-		struct branch : public node<T> {
+		virtual struct branch : public node<T> {
 			branch();
 			branch(const T &newVal, const K &newKey);
 			branch(const branch &otherBranch);
@@ -33,8 +33,8 @@ namespace sktech {
 			bool operator>(const branch &otherBranch);
 			K key;
 		};
-		node<T> *root;
-		unsigned int _size;
+		virtual node<T> *root;
+		virtual unsigned int _size;
 	private:
 	};
 }

@@ -6,7 +6,7 @@
  */
 #ifndef CHAIN_H_
 #define CHAIN_H_
-#include"basic_chain.cpp"
+#include"abstracts/basic_chain.cpp"
 namespace sktech {
 	/* TODO: Utilize inheritance within lists
 	 * Type: chain<T>

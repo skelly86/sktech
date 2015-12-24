@@ -4,7 +4,7 @@
  */
 #ifndef RCHAIN_H_
 #define RCHAIN_H_
-#include"basic_chain.cpp"
+#include"abstracts/basic_chain.cpp"
 namespace sktech{
 	template<class T>
 	class rchain : private basic_chain {
