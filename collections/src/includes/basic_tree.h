@@ -25,6 +25,7 @@ namespace sktech {
 			branch();
 			branch(const T &newVal, const K &newKey);
 			branch(const branch &otherBranch);
+			~branch();
 			branch &operator=(const branch &otherBranch);
 			bool operator==(const branch &otherBranch);
 			bool operator!=(const branch &otherBranch);

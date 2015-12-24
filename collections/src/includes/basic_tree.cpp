@@ -29,6 +29,10 @@ namespace sktech {
 	basic_tree<T,K>::branch::branch(const branch &otherBranch)
 	: val(new T(otherbranch->val)), key(otherBranch.key) {}
 	template<class T, class K>
+	basic_tree<T,K>::branch::~branch() {
+		node<T>::~node();
+	}
+	template<class T, class K>
 	basic_tree<T,K>::branch<T,K> &basic_tree<T,K>::branch::operator=(const branch &otherBranch) {
 		if(this != *otherBranch) {
 			delete val;
