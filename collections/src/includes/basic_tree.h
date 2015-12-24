@@ -23,9 +23,14 @@ namespace sktech {
 	protected:
 		struct branch : public node<T> {
 			branch();
+			branch(const T &newVal, const K &newKey);
 			branch(const branch &otherBranch);
 			branch &operator=(const branch &otherBranch);
-			K *key;
+			bool operator==(const branch &otherBranch);
+			bool operator!=(const branch &otherBranch);
+			bool operator<(const branch &otherBranch);
+			bool operator>(const branch &otherBranch);
+			K key;
 		};
 		node<T> *root;
 		unsigned int _size;
