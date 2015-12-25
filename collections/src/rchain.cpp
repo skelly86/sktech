@@ -74,13 +74,13 @@ namespace sktech {
 	T &rchain<T>::left(node<T> *nextNode, unsigned long int i, unsigned long int index) {
 		if(i == index)
 			return *(nextNode->val);
-		return left(nextNode->leftP, i-1, index);
+		return left(nextNode->leftP, i - 1, index);
 	}
 	template<class T>
 	T &rchain<T>::right(node<T> *nextNode, unsigned long int i, unsigned long int index) {
 		if(i == index)
 			return *(nextNode->val);
-		return right(nextNode->rightP, i+1, index);
+		return right(nextNode->rightP, i + 1, index);
 	}
 
 	template<class T>
@@ -88,6 +88,6 @@ namespace sktech {
 		if(index == new_size)
 			return true;
 		push_back(va_arg(newChain,T));
-		return varAdd(newChain, new_size, index+1);
+		return varAdd(newChain, new_size, index + 1);
 	}
 }

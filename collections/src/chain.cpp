@@ -17,7 +17,8 @@ namespace sktech {
 	chain<T>::chain(unsigned long int new_size) {
 		basic_chain<T>::basic_chain();
 		while(basic_chain<T>::_size < new_size)
-			push_back(T());}
+			push_back(T());
+	}
 	template<class T>
 	chain<T>::chain(unsigned long int new_size, ...) {
 		basic_chain<T>::basic_chain();
@@ -25,7 +26,8 @@ namespace sktech {
 		va_start(newChain, new_size);
 		for(int i = 0; i < new_size; i++)
 			push_back(va_arg(newChain, T));
-		va_end(newChain);}
+		va_end(newChain);
+	}
 	template<class T>
 	chain<T>::chain(const basic_chain<T> &otherChain) {
 		basic_chain<T>::basic_chain();

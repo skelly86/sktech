@@ -19,14 +19,15 @@ namespace sktech{
 	template<class T>
 	node<T>::~node(){
 		delete val;
-		val = leftP = rightP = NULL;}
+		val = leftP = rightP = NULL;
+	}
 	template<class T>
 	node<T> & node<T>::operator =(const node<T> &otherNode){
 		if(this != *otherNode){
-			if(val == NULL)
-				val = T(*(otherNode->val));
-			else
-				*val = *(otherNode->val));}
-		return *this;}
+			delete val;
+			*val = *(otherNode->val);
+		}
+		return *this;
+	}
 }
 #endif
