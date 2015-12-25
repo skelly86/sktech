@@ -12,6 +12,9 @@ namespace sktech {
 	basic_tree<T,K>::basic_tree()
 	: root(NULL), _size(0) {}
 	template<class T, class K>
+	basic_tree<T,K>::basic_tree(const basic_tree &otherTree)
+	: root(NULL), _size(0) {}
+	template<class T, class K>
 	const unsigned int basic_tree<T,K>::size() {
 		return _size;
 	}
