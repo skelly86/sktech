@@ -15,6 +15,7 @@ namespace sktech {
 	public:
 		virtual basic_tree();
 		virtual basic_tree(const basic_tree &otherTree);
+		virtual basic_tree(const T &value, const K &newKey);
 		virtual ~basic_tree();
 		virtual void clear() = 0;
 		virtual const unsigned int size() const;

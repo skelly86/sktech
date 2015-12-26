@@ -13,8 +13,9 @@ namespace sktech {
 		basic_tree<T,K>::basic_tree();
 	}
 	template<class T, class K = unsigned int>
-	btree<T,K>::btree(const T &value, const K &newKey)
-	: root(new branch(value, newKey)), size(1) {}
+	btree<T,K>::btree(const T &value, const K &newKey) {
+		bais_tree<T,K>::basic_tree(value, newKey);
+	}
 	template<class T, class K = unsigned int>
 	btree<T,K>::btree(const btree &otherTree) {
 		basic_tree<T,K>::basic_tree(otherTree);
