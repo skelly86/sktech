@@ -5,8 +5,8 @@
  *      Author: Shauna
  */
 
-#ifndef SRC_INCLUDES_ITREE_H_
-#define SRC_INCLUDES_ITREE_H_
+#ifndef ITREE_H_
+#define ITREE_H_
 #include"abstracts/basic_tree.cpp"
 namespace sktech {
 	template<class T, class K = unsigned int>
@@ -17,7 +17,10 @@ namespace sktech {
 		itree(const itree &otherTree);
 		~itree();
 		itree &operator=(const itree &otherTree);
+		void clear();
+		void insert(const T &newVal, const K &newKey);
+		const T &search(const K &searchKey);
 	private:
 	};
 }
-#endif /* SRC_INCLUDES_ITREE_H_ */
+#endif /* ITREE_H_ */

@@ -27,4 +27,4 @@ namespace sktech {
 		void purge(branch *nextBranch);
 	};
 }
-#endif /* SRC_INCLUDES_BTREE_H_ */
+#endif /* BTREE_H_ */
