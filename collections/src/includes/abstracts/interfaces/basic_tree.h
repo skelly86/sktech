@@ -3,7 +3,8 @@
  *
  *  Created on: Dec 19, 2015
  *      Author: Shauna
- *      TODO: implement the abstract class
+ *      TODO: Because the difference between derived classes is search(K),
+ *      	move other functions to abstract class to remove redundant code.
  */
 
 #ifndef BASIC_TREE_H_
