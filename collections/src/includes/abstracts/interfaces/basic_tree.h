@@ -6,7 +6,6 @@
  *      TODO: Because the difference between derived classes is search(K),
  *      	move other functions to abstract class to remove redundant code.
  */
-
 #ifndef BASIC_TREE_H_
 #define BASIC_TREE_H_
 #include"node.cpp"
@@ -18,9 +17,10 @@ namespace sktech {
 		virtual basic_tree(const basic_tree &otherTree);
 		virtual basic_tree(const T &value, const K &newKey);
 		virtual ~basic_tree();
-		virtual void clear() = 0;
+		virtual basic_tree &operator=(const basic_tree &otherTree);
+		virtual void clear();
 		virtual const unsigned int size() const;
-		virtual void insert(const T &newVal, const K &newKey) = 0;
+		virtual void insert(const T &newVal, const K &newKey);
 		virtual const T &search(const K &searchKey) = 0;
 	protected:
 		virtual struct branch : public node<T> {
@@ -36,8 +36,11 @@ namespace sktech {
 			K key;
 		};
 		virtual node<T> *root;
-		virtual unsigned int _size;
 	private:
+		virtual void copy(const branch *oldBranch, branch *newBranch);
+		virtual void add(branch *nextBranch, const K &newKey, const T &value);
+		virtual void purge(branch *nextBranch);
+		virtual unsigned int _size;
 	};
 }
 #endif /* BASIC_TREE_H_ */

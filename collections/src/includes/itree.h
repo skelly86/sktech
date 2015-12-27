@@ -17,14 +17,9 @@ namespace sktech {
 		itree(const itree &otherTree);
 		~itree();
 		itree &operator=(const itree &otherTree);
-		void clear();
-		void insert(const T &newVal, const K &newKey);
 		const T &search(const K &searchKey);
 	private:
-		void copy(const branch *oldBranch);
 		branch &climb(const K &_key);
-		void add(const K &newKey, const T &value);
-		void purge();
 	};
 }
 #endif /* ITREE_H_ */

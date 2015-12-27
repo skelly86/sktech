@@ -18,35 +18,19 @@ namespace sktech {
 	}
 	template<class T, class K = unsigned int>
 	itree<T,K>::itree(const itree &otherTree) {
-		copy(otherTree.root);
+		basic_tree<T,K>::basic_tree(otherTree);
 	}
 	template<class T, class K = unsigned int>
 	itree<T,K>::~itree() {
-		purge();
+		basic_tree<T,K>::~basic_tree();
 	}
 	template<class T, class K = unsigned int>
 	itree &itree<T,K>::operator=(const itree &otherTree) {
-		if(this != *otherTree) {
-			purge();
-			copy(otherTree.root);
-		}
-		return *this;
-	}
-	template<class T, class K = unsigned int>
-	void itree<T,K>::clear() {
-		purge();
-	}
-	template<class T, class K = unsigned int>
-	void itree<T,K>::insert(const T &newVal, const K &newKey) {
-		add(newKey, newVal);
+		return basic_tree<T,K>::operator=(otherTree);
 	}
 	template<class T, class K = unsigned int>
 	const T &itree<T,K>::search(const K &searchKey) {
 		return climb(searchKey).val;
-	}
-	template<class T, class K = unsigned int>
-	void itree<T,K>::copy(const branch *oldBranch) {
-
 	}
 	template<class T, class K = unsigned int>
 	branch<T,K> &itree<T,K>::climb(const K &_key) {
@@ -58,15 +42,7 @@ namespace sktech {
 				current = current->leftP;
 			else
 				current = current->rightP;
-		return current;
-	}
-	template<class T, class K = unsigned int>
-	void itree<T,K>::add(const K &newKey, const T &value) {
-
-	}
-	template<class T, class K = unsigned int>
-	void itree<T,K>::purge() {
-
+		return *current;
 	}
 }
 #endif

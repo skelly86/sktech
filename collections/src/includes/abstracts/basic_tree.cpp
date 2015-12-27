@@ -13,17 +13,65 @@ namespace sktech {
 	: root(NULL), _size(0) {}
 	template<class T, class K = unsigned int>
 	basic_tree<T,K>::basic_tree(const basic_tree &otherTree)
-	: root(NULL), _size(0) {}
+	: root(NULL), _size(0) {
+		copy(otherTree);
+	}
 	template<class T, class K = unsigned int>
 	basic_tree<T,K>::basic_tree(const T &value, const K &newKey)
-	: root(new branch(vale, newKey)), _size(1) {}
+	: root(new branch(value, newKey)), _size(1) {}
 	template<class T, class K = unsigned int>
-	const unsigned int basic_tree<T,K>::size() {
+	const unsigned int basic_tree<T,K>::size() const{
 		return _size;
 	}
 	template<class T, class K = unsigned int>
 	basic_tree<T,K>::~basic_tree() {
 		clear();
+	}
+	template<class T, class K = unsigned int>
+	basic_tree<T,K> &basic_tree<T,K>::operator=(const basic_tree<T,K> &otherTree) {
+		if(this != *otherTree) {
+			purge(root);
+			copy(otherTree->root, root);
+		}
+		return *this;
+	}
+	template<class T, class K = unsigned int>
+	void basic_tree<T,K>::clear() {
+		purge(root);
+		root = NULL;
+	}
+	template<class T, class K = unsigned int>
+	void basic_tree<T,K>::insert(const T &newVal, const K &newKey) {
+			add(root, newKey, newVal);
+	}
+	template<class T, class K = unsigned int>
+	void basic_tree<T,K>::copy(const branch *oldBranch, branch *newBranch) {
+		newBranch = new branch(*oldBranch);
+		_size++;
+		if(oldBranch->leftP != NULL)
+			copy(oldBranch->leftP, newBranch->leftP);
+		if(oldBranch->rightP != NULL)
+			copy(oldBranch->rightP, newBranch->rightP);
+	}
+	template<class T, class K = unsigned int>
+	void basic_tree<T,K>::add
+	(branch<T,K> *nextBranch, const K &newKey, const T &value) {
+		if(nextBranch == NULL) {
+			nextBranch = new branch(value, newKey);
+			_size++;
+		} else if(nextBranch < newKey)
+			add(nextBranch->rightP, newKey, value);
+		else
+			add(nextBranch->leftP, newKey, value);
+	}
+	template<class T, class K = unsigned int>
+	void basic_tree<T,K>::purge(branch<T,K> *nextBranch){
+		if(nextBranch->leftP != NULL)
+			purge(nextBranch->leftP);
+		if(nextBanch->rightP != NULL)
+			purge(nextBranch->rightP);
+		delete nextBranch;
+		_size--;
 	}
 	template<class T, class K = unsigned int>
 	basic_tree<T,K>::branch::branch()
