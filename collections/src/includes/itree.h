@@ -3,6 +3,7 @@
  *
  *  Created on: Dec 25, 2015
  *      Author: Shauna
+ *      Description:	Binary search tree with an iterated search algorithm
  */
 
 #ifndef ITREE_H_

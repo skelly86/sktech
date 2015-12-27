@@ -89,8 +89,7 @@ namespace sktech {
 	template<class T, class K = unsigned int>
 	basic_tree<T,K>::branch<T,K> &basic_tree<T,K>::branch::operator=(const branch &otherBranch) {
 		if(this != *otherBranch) {
-			delete val;
-			val = new T(otherBranch->val);
+			node<T>::operator=(otherBranch);
 			key = otherBranch.key;
 		}
 		return *this;

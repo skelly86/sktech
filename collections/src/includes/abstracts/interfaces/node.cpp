@@ -25,7 +25,7 @@ namespace sktech{
 	node<T> & node<T>::operator =(const node<T> &otherNode){
 		if(this != *otherNode){
 			delete val;
-			*val = *(otherNode->val);
+			val = new T(otherNode->val);
 		}
 		return *this;
 	}
