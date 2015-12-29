@@ -4,10 +4,11 @@
  *  Created on: Feb 11, 2015
  *      Author: shauna
  */
-#ifndef NODE_H_
-#define NODE_H_
 #ifndef NULL
 #define NULL 0
+#endif
+#ifndef NODE_H_
+#define NODE_H_
 namespace sktech{
 	template<class T>
 	struct node{
