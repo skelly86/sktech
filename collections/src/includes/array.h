@@ -21,6 +21,7 @@ namespace sktech {
 		array &operator=(const array &otherArray);
 		T &operator[](unsigned long int index);
 		bool empty();
+		bool full();
 		unsigned long int size();
 		void copy(const array &otherArray);
 		void clear();

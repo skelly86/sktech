@@ -41,7 +41,11 @@ namespace sktech {
 	}
 	template<class T>
 	bool array<T>::empty() {
-		return _size == 0;
+		return 0 == (_front + _back);
+	}
+	template<class T>
+	bool array<T>::full() {
+		return (_front + _back) == _size;
 	}
 	template<class T>
 	unsigned long int array<T>::size();
@@ -77,13 +81,25 @@ namespace sktech {
 		_size = newSize;
 	}
 	template<class T>
-	void array<T>::push_back(const T &newVal);
+	void array<T>::push_back(const T &newVal) {
+		if(full())
+			throw this;
+	}
 	template<class T>
-	void array<T>::push_front(const T &newVal);
+	void array<T>::push_front(const T &newVal) {
+		if(full())
+			throw this;
+	}
 	template<class T>
-	void array<T>::pop_back();
+	void array<T>::pop_back() {
+		vals[_back] = T();
+		_back = (_back - 1) % _size;
+	}
 	template<class T>
-	void array<T>::pop_front();
+	void array<T>::pop_front() {
+		vals[_back] = T();
+		_front = (_front + 1) % _size;
+	}
 	template<class T>
 	const T &array<T>::front()const {
 		return vals[_front];
