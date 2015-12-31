@@ -41,7 +41,7 @@ namespace sktech {
 	}
 	template<class T>
 	bool array<T>::empty() {
-		return 0 == (_front + _back);
+		return vals == NULL || 0 == (_front + _back);
 	}
 	template<class T>
 	bool array<T>::full() {
@@ -84,11 +84,15 @@ namespace sktech {
 	void array<T>::push_back(const T &newVal) {
 		if(full())
 			throw this;
+		_back = (_back + 1) % _size;
+		vals[_back] = newVal;
 	}
 	template<class T>
 	void array<T>::push_front(const T &newVal) {
 		if(full())
 			throw this;
+		_front = (_front - 1) % _size;
+		vals[_front] = newVal;
 	}
 	template<class T>
 	void array<T>::pop_back() {
