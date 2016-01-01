@@ -31,15 +31,18 @@ namespace sktech {
 	template<class T>
 	chain<T>::chain(const basic_chain<T> &otherChain) {
 		basic_chain<T>::basic_chain();
-		// counter for index
-		unsigned i = 0;
-		// push otherChain onto this one
-		while(basic_chain<T>::_size < otherChain._size)
-			push_back(otherChain[i++]);
+		copy(otherChain);
 	}
 	template<class T>
 	chain<T>::~chain() {
 		clear();
+	}
+	template<class T>
+	void chain<T>::copy(const basic_chain<T> &otherChain) {
+		if(!empty())
+			clear();
+		for(unsigned long int i = 0; i < otherChain.size(); i++)
+			push_back(otherChain[i]);
 	}
 	template<class T>
 	void chain<T>::clear() {

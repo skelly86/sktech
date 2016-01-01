@@ -28,13 +28,13 @@ namespace sktech {
 		virtual T pop_front();
 		virtual T pop_back();
 		virtual const unsigned long int size()const;
-		virtual const unsigned long int Max()const;
+		virtual const unsigned long int max()const;
 		virtual bool full()const;
 		virtual bool empty()const;
 	protected:
 		virtual bool add(node<T> *addPoint, const T &newVal, bool first);
 		virtual bool remove(node<T> *deletePoint, bool first);
-		virtual unsigned long int _size, max;
+		virtual unsigned long int _size, _max;
 		virtual node<T> *firstP;
 		virtual node<T> *lastP;
 	private:

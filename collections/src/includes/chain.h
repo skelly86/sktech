@@ -30,6 +30,7 @@ namespace sktech {
 		chain(const basic_chain<T> &otherChain);
 		virtual ~chain();
 		void clear();
+		void copy(const basic_chain<T> &otherChain);
 		chain &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	};

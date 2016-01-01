@@ -32,13 +32,13 @@ namespace sktech {
 	template<class T>
 	T basic_chain<T>::pop_front() {
 		T temp = empty() ? T() : front();
-		remove(firstP, true);
+		remove(firstP, 0x01);
 		return temp;
 	}
 	template<class T>
 	T basic_chain<T>::pop_back() {
 		T temp = empty() ? T() : back();
-		remove(lastP, false);
+		remove(lastP, 0x00);
 		return temp;
 	}
 	template<class T>
@@ -79,10 +79,12 @@ namespace sktech {
 		if(first) {
 			firstP = firstP->rightP;
 			delete firstP->leftP;
+			firstP->leftP = NULL;
 		}
 		else {
 			lastP = lastP->leftP;
 			delete lastP->rightP;
+			lastP->rightP = NULL;
 		}
 		return true;
 	}

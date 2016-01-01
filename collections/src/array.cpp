@@ -28,7 +28,6 @@ namespace sktech {
 	template<class T>
 	array<T>::array &operator=(const array<T> &otherArray) {
 		if(this != *otherArray) {
-			clear();
 			copy(otherArray);
 		}
 		return *this;
@@ -54,11 +53,11 @@ namespace sktech {
 		if(!empty())
 			clear();
 		vals = new T(otherArray._size);
+		for(unsigned long int i = 0; i < otherArray._size; i++)
+			vals[i] = otherArray[i];
 		_size = otherArray._size;
 		_front = otherArray._front;
 		_back = otherArray._back;
-		for(unsigned long int i = 0; i < otherArray._size; i++)
-			vals[i] = otherArray[i];
 	}
 	template<class T>
 	void array<T>::clear() {
