@@ -16,7 +16,7 @@ namespace sktech {
 	template<class T>
 	chain<T>::chain(unsigned long int new_size) {
 		basic_chain<T>::basic_chain();
-		while(basic_chain<T>::_size < new_size)
+		while(_size < new_size)
 			push_back(T());
 	}
 	template<class T>
@@ -48,6 +48,12 @@ namespace sktech {
 	void chain<T>::clear() {
 		while(!basic_chain<T>::empty())
 			basic_chain<T>::pop_back();
+	}
+	template<class T>
+	basic_chain<T> &chain<T>::operator=(const basic_chain<T> &otherChain) {
+		if(this != *otherChain)
+			copy(otherChain);
+		return *this;
 	}
 	template<class T>
 	T &chain<T>::operator[](unsigned long int n) {

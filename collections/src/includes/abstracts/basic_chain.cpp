@@ -7,7 +7,7 @@
 namespace sktech {
 	template<class T>
 	basic_chain<T>::basic_chain()
-	:_size(0), max(0), firstP(NULL), lastP(NULL) {}
+	:_size(0), _max(0), firstP(NULL), lastP(NULL) {}
 	// TODO reimpliment push functions
 	template<class T>
 	const T &basic_chain<T>::push_back(const T &newVal) const {
@@ -46,12 +46,12 @@ namespace sktech {
 		return _size;
 	}
 	template<class T>
-	const unsigned long int basic_chain<T>::Max() const {
-		return max;
+	const unsigned long int basic_chain<T>::max() const {
+		return _max;
 	}
 	template<class T>
 	bool basic_chain<T>::full() const {
-		return max > 0 && _size == max;
+		return _max > 0 && _size == _max;
 	}
 	template<class T>
 	bool basic_chain<T>::empty() const {

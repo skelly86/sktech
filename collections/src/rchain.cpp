@@ -32,6 +32,12 @@ namespace sktech {
 		clear();
 	}
 	template<class T>
+	void rchain<T>::copy(const basic_chain<T> &otherChain) {
+		if(!empty)
+			clear;
+		grow(otherChain);
+	}
+	template<class T>
 	void rchain<T>::clear() {
 		if(basic_chain<T>::empty())
 			basic_chain<T>::max = 0;
@@ -42,10 +48,8 @@ namespace sktech {
 	}
 	template<class T>
 	rchain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
-		if(this != *otherChain) {
-			clear();
-			grow(otherChain._size, otherChain);
-		}
+		if(this != *otherChain)
+			copy(otherChain);
 		return *this;
 	}
 	template<class T>

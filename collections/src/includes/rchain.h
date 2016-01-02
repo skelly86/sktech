@@ -7,13 +7,14 @@
 #include"abstracts/basic_chain.cpp"
 namespace sktech{
 	template<class T>
-	class rchain : private basic_chain {
+	class rchain : private basic_chain<T> {
 	public:
 		rchain();
 		rchain(unsigned long int new_size);
 		rchain(unsigned long int new_size, ...);
 		rchain(const basic_chain<T> &otherChain);
 		virtual ~rchain();
+		void copy(const basic_chain<T> &otherChain);
 		void clear();
 		rchain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);

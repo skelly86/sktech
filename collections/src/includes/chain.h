@@ -22,7 +22,7 @@ namespace sktech {
 	 * 	pop_back():T:removes node in back of chain, sends old value to user
 	 */
 	template<class T>
-	class chain : public basic_chain {
+	class chain : public basic_chain<T> {
 	public:
 		chain();
 		chain(unsigned long int new_size);
@@ -31,7 +31,7 @@ namespace sktech {
 		virtual ~chain();
 		void clear();
 		void copy(const basic_chain<T> &otherChain);
-		chain &operator=(const basic_chain<T> &otherChain);
+		basic_chain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	};
 }
