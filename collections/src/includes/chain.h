@@ -8,7 +8,7 @@
 #define CHAIN_H_
 #include"abstracts/basic_chain.cpp"
 namespace sktech {
-	/* TODO: Utilize inheritance within lists
+	/*
 	 * Type: chain<T>
 	 * Members:
 	 *	firstP:Pointer to node<T>:points to address of first node
@@ -25,8 +25,9 @@ namespace sktech {
 	class chain : public basic_chain<T> {
 	public:
 		chain();
-		chain(unsigned long int new_size);
-		chain(unsigned long int new_size, ...);
+		chain(unsigned long int newSize);
+		chain(unsigned long int newSize, unsigned long int newMax);
+		chain(unsigned long int newSize, ...);
 		chain(const basic_chain<T> &otherChain);
 		virtual ~chain();
 		void clear();

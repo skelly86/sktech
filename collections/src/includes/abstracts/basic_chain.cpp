@@ -1,5 +1,5 @@
 /*
- *
+ *	@author: Shauna Kelly
  */
 #ifndef BASIC_CHAIN_CPP_
 #define BASIC_CHAIN_CPP_
@@ -8,18 +8,15 @@ namespace sktech {
 	template<class T>
 	basic_chain<T>::basic_chain()
 	:_size(0), _max(0), firstP(NULL), lastP(NULL) {}
-	// TODO reimpliment push functions
 	template<class T>
-	const T &basic_chain<T>::push_back(const T &newVal) const {
+	void basic_chain<T>::push_back(const T &newVal) const {
 		if(!full())
 			add(lastP, newVal, false);
-		return back();
 	}
 	template<class T>
-	const T &basic_chain<T>::push_front(const T &newVal) const {
+	void basic_chain<T>::push_front(const T &newVal) const {
 		if(!full())
 			add(firstP, newVal, true);
-		return front();
 	}
 	template<class T>
 	const T &basic_chain<T>::front() const {
@@ -30,16 +27,12 @@ namespace sktech {
 		return lastP->val;
 	}
 	template<class T>
-	T basic_chain<T>::pop_front() {
-		T temp = empty() ? T() : front();
+	void basic_chain<T>::pop_front() {
 		remove(firstP, 0x01);
-		return temp;
 	}
 	template<class T>
-	T basic_chain<T>::pop_back() {
-		T temp = empty() ? T() : back();
+	void basic_chain<T>::pop_back() {
 		remove(lastP, 0x00);
-		return temp;
 	}
 	template<class T>
 	const unsigned long int basic_chain<T>::size() const {
@@ -58,9 +51,9 @@ namespace sktech {
 		return _size == 0;
 	}
 	template<class T>
-	bool basic_chain<T>::add(node<T> *addPoint, const T &newVal, bool first) {
+	void basic_chain<T>::add(node<T> *addPoint, const T &newVal, bool first) {
 		if(full())
-			return false;
+			return;
 		node<T> *newNode = new node<T>(newVal);
 		if(empty())
 			firstP = lastP = newNode;
@@ -70,12 +63,11 @@ namespace sktech {
 			else
 				lastP = lastP->rightP = newNode;
 		}
-		return true;
 	}
 	template<class T>
-	bool basic_chain<T>::remove(node<T> *deletePoint, bool first) {
+	void basic_chain<T>::remove(node<T> *deletePoint, bool first) {
 		if(empty())
-			return false;
+			return;
 		if(first) {
 			firstP = firstP->rightP;
 			delete firstP->leftP;
@@ -86,7 +78,6 @@ namespace sktech {
 			delete lastP->rightP;
 			lastP->rightP = NULL;
 		}
-		return true;
 	}
 }
 #endif /* BASIC_CHAIN_CPP_ */

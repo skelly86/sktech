@@ -4,7 +4,6 @@
  *  Created on: May 20, 2015
  *      Author: shauna
  *      description: abstract class for chain and rchain
- *      TODO: Utilize inheritance within lists
  */
 
 #ifndef BASIC_CHAIN_H_
@@ -22,19 +21,19 @@ namespace sktech {
 		virtual T &operator[](unsigned long int n) = 0;
 		virtual void clear() = 0;
 		virtual void copy(const basic_chain &otherChain) = 0;
-		virtual const T &push_back(const T &newVal)const;
-		virtual const T &push_front(const T &newVal)const;
+		virtual void push_back(const T &newVal)const;
+		virtual void push_front(const T &newVal)const;
 		virtual const T &front()const;
 		virtual const T &back()const;
-		virtual T pop_front();
-		virtual T pop_back();
+		virtual void pop_front();
+		virtual void pop_back();
 		virtual const unsigned long int size()const;
 		virtual const unsigned long int max()const;
 		virtual bool full()const;
 		virtual bool empty()const;
 	protected:
-		virtual bool add(node<T> *addPoint, const T &newVal, bool first);
-		virtual bool remove(node<T> *deletePoint, bool first);
+		virtual void add(node<T> *addPoint, const T &newVal, bool first);
+		virtual void remove(node<T> *deletePoint, bool first);
 		virtual unsigned long int _size, _max;
 		virtual node<T> *firstP;
 		virtual node<T> *lastP;

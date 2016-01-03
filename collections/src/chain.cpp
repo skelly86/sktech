@@ -3,7 +3,6 @@
  *
  *  Created on: Feb 9, 2015
  *      Author: shauna
- *      TODO: Utilize inheritance within lists
  */
 #ifndef CHAIN_CPP_
 #define CHAIN_CPP_
@@ -14,10 +13,18 @@ namespace sktech {
 		basic_chain<T>::basic_chain();
 	}
 	template<class T>
-	chain<T>::chain(unsigned long int new_size) {
+	chain<T>::chain(unsigned long int newSize) {
 		basic_chain<T>::basic_chain();
-		while(_size < new_size)
+		while(_size < newSize)
 			push_back(T());
+	}
+	template<class T>
+	chain<T>::chain(unsigned long int newSize, unsigned long int newMax)
+	: firstP(NULL), lastP(NULL), _size(0), _max(newMax) {
+		if(newSize > newMax)
+			throw this;
+		while(_size < newSize)
+			pushback(T());
 	}
 	template<class T>
 	chain<T>::chain(unsigned long int new_size, ...) {
@@ -48,6 +55,7 @@ namespace sktech {
 	void chain<T>::clear() {
 		while(!basic_chain<T>::empty())
 			basic_chain<T>::pop_back();
+		_max = 0;
 	}
 	template<class T>
 	basic_chain<T> &chain<T>::operator=(const basic_chain<T> &otherChain) {

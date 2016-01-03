@@ -19,7 +19,7 @@ namespace sktech{
 		rchain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	private:
-		bool grow(unsigned _size, const basic_chain<T> &otherChain = NULL,
+		bool grow(unsigned long int size, const basic_chain<T> &otherChain = NULL,
 				unsigned long int index = 0);
 		T &left(node<T> *nextNode, unsigned long int i,
 				unsigned long int index);
