@@ -65,34 +65,23 @@ namespace sktech {
 	}
 	template<class T>
 	T &chain<T>::operator[](unsigned long int n) {
-		int index = 0;
-		// check if in range
 		if(n >= basic_chain<T>::_size)
 			throw n;//new out_of_range("");
-		// check if lower or higher half of chain
-		if(n < (basic_chain<T>::_size/2)) {
-			// traverse list
-			for(node<T> *traversalP = basic_chain<T>::firstP;
-					index <= n;
-					traversalP = traversalP->rightP) {
-				if(index == n)
-					// return the indexed node value
-					return *(traversalP->val);
-				index++;
-			}
-		}
-		else {
-			index = basic_chain<T>::_size - 1;
-			// traverse list
-			for(node<T> *traversalP = basic_chain<T>::lastP;
-					index <= n;
-					traversalP = traversalP->leftP) {
-				if(index == n)
-					// return the indexed node value
-					return traversalP->val;
-				index--;
-			}
-		}
+		if(n < _size / 2)
+			return traverse(n, true);
+		else
+			return traverse(n, false);
+	}
+	template<class T>
+	T &chain<T>::traverse(unsigned long int n, bool lower) {
+		unsigned long int index = lower ? 0 : _size - 1;
+		node<T> *traversalP = lower ? firstP : lastP;
+		do {
+			if(index == n)
+				return traversalP->val;
+			index += lower ? 1 : -1;
+			traversalP = lower ? traversalP->rightP : traversalP->leftP;
+		} while(traversalP != NULL);
 	}
 }
 #endif // CHIAN_CPP_

@@ -10,7 +10,7 @@
 #define BASIC_TREE_H_
 #include"node.cpp"
 namespace sktech {
-	template<class T, class K = unsigned int>
+	template<class T, class K = unsigned long int>
 	class basic_tree {
 	public:
 		virtual basic_tree();
@@ -37,10 +37,10 @@ namespace sktech {
 		};
 		virtual node<T> *root;
 	private:
-		virtual void copy(const branch *oldBranch, branch *newBranch);
+		virtual void copy(branch *oldBranch, branch *newBranch);
 		virtual void add(branch *nextBranch, const K &newKey, const T &value);
 		virtual void purge(branch *nextBranch);
-		virtual unsigned int _size;
+		virtual unsigned long int _size;
 	};
 }
 #endif /* BASIC_TREE_H_ */

@@ -34,6 +34,8 @@ namespace sktech {
 		void copy(const basic_chain<T> &otherChain);
 		basic_chain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
+	private:
+		T &traverse(unsigned long int n, bool lower);
 	};
 }
 #endif /* CHAIN_H_ */

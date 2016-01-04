@@ -25,7 +25,7 @@ namespace sktech {
 	template<class T>
 	rchain<T>::rchain(const basic_chain<T> &otherChain) {
 		basic_chain<T>::basic_chain();
-		grow(otherChain._size, otherChain);
+		copy(otherChain);
 	}
 	template<class T>
 	rchain<T>::~rchain() {
@@ -61,18 +61,18 @@ namespace sktech {
 		return right(basic_chain<T>::firstP, 0, n);
 	}
 	template<class T>
-	bool rchain<T>::grow(unsigned long intsize,
+	bool rchain<T>::grow(unsigned long int size,
 			const basic_chain<T> &otherChain = NULL,
 			unsigned long int index = 0) {
 		//Only used for initialization and assignment
-		if(!empty())
+		if(full())
 			return false;
 		if(index + 1 == size) {
 			if(&otherChain == NULL)
-				push_back(new T());
+				push_back(T());
 			else
 				push_back(otherChain[index]);
-			return grow(size, otherChain, index++);
+			return grow(size, otherChain, index + 1);
 		}
 		return true;
 	}
@@ -103,3 +103,4 @@ namespace sktech {
 		return varAdd(newChain, new_size, index + 1);
 	}
 }
+#endif
