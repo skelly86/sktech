@@ -1,5 +1,5 @@
 /*
- * node<T> was made block oriented instead of inline to reduce overall code size.
+ * @author: Shauna Kelly
  */
 #ifndef NODE_CPP_
 #define NODE_CPP_
@@ -18,6 +18,7 @@ namespace sktech{
 	: leftP(NULL), rightP(NULL), val(newVal){}
 	template<class T>
 	node<T>::~node(){
+		*val = T();
 		delete val;
 		val = leftP = rightP = NULL;
 	}

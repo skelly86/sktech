@@ -13,10 +13,7 @@ namespace sktech {
 	: vals(NULL), _size(0), _front(0), _back(0) {}
 	template<class T>
 	array<T>::array(unsigned int newSize)
-	: _front(0), _back(newSize - 1){
-		vals = new T[newSize];
-		_size = newSize;
-	}
+	: _front(0), _back(0), vals(new T[newSize]), _size(newSize){}
 	template<class T>
 	array<T>::array(const array<T> &otherArray) {
 		copy(otherArray);
@@ -47,7 +44,9 @@ namespace sktech {
 		return (_front + _back) == _size;
 	}
 	template<class T>
-	unsigned long int array<T>::size();
+	const unsigned long int array<T>::size()const {
+		return _size;
+	}
 	template<class T>
 	void array<T>::copy(const array<T> &otherArray) {
 		if(!empty())
@@ -62,6 +61,8 @@ namespace sktech {
 	template<class T>
 	void array<T>::clear() {
 		if(!empty()) {
+			for(unsigned long int i = 0; i < _size; i++)
+				vals[i] = T();
 			delete [] vals;
 			vals = NULL;
 			_size = _front = _back = 0;

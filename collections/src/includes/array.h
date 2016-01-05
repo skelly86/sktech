@@ -22,7 +22,7 @@ namespace sktech {
 		T &operator[](unsigned long int index);
 		bool empty();
 		bool full();
-		unsigned long int size();
+		const unsigned long int size()const;
 		void copy(const array &otherArray);
 		void clear();
 		void resize(unsigned long int newSize);

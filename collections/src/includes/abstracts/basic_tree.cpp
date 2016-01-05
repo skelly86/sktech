@@ -58,7 +58,7 @@ namespace sktech {
 	}
 	template<class T, class K = unsigned long int>
 	void basic_tree<T,K>::add
-	(basic_tree<T,K>::branch *nextBranch, const K &newKey, const T &value) {
+	(basic_tree<T,K>::branch *&nextBranch, const K &newKey, const T &value) {
 		if(nextBranch == NULL) {
 			nextBranch = new branch(value, newKey);
 			_size++;
@@ -88,6 +88,7 @@ namespace sktech {
 	template<class T, class K = unsigned long int>
 	basic_tree<T,K>::branch::~branch() {
 		node<T>::~node();
+		key = K();
 	}
 	template<class T, class K = unsigned long int>
 	basic_tree<T,K>::branch &basic_tree<T,K>::branch::operator=

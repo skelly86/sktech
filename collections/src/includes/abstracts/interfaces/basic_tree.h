@@ -38,7 +38,7 @@ namespace sktech {
 		virtual node<T> *root;
 	private:
 		virtual void copy(branch *oldBranch, branch *newBranch);
-		virtual void add(branch *nextBranch, const K &newKey, const T &value);
+		virtual void add(branch *&nextBranch, const K &newKey, const T &value);
 		virtual void purge(branch *nextBranch);
 		virtual unsigned long int _size;
 	};
