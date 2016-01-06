@@ -2,9 +2,9 @@
  */
 #ifndef SKCOLLECTIONS_H_
 #define SKCOLLECTIONS_H_
-#include"src/chain.cpp"
-#include"src/rchain.cpp"
-#include"src/array.cpp"
-#include"src/btree.cpp"
-#include"src/itree.cpp"
+#include"src/containers/chain.cpp"
+#include"src/containers/rchain.cpp"
+#include"src/containers/array.cpp"
+#include"src/containers/btree.cpp"
+#include"src/containers/itree.cpp"
 #endif
