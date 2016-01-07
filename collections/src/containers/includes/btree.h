@@ -9,7 +9,7 @@
 #define BTREE_H_
 #include"abstracts/basic_tree.cpp"
 namespace sktech {
-	template<class T, class K = unsigned int>
+	template<class T, class K = unsigned long int>
 	class btree : public basic_tree<T,K> {
 	public:
 		btree();

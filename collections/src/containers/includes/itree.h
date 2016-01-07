@@ -10,16 +10,16 @@
 #define ITREE_H_
 #include"abstracts/basic_tree.cpp"
 namespace sktech {
-	template<class T, class K = unsigned int>
+template<class T, class K = unsigned long int>
 	class itree : public basic_tree<T,K> {
 	public:
 		itree();
-		itree(const T &value, const T &newKey);
+		itree(const T &value, const K &newKey);
 		itree(const itree &otherTree);
 		~itree();
 		itree &operator=(const itree &otherTree);
 		const T &search(const K &searchKey);
-	private:
+	protected:
 		branch &climb(const K &_key);
 	};
 }
