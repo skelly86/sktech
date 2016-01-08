@@ -17,7 +17,7 @@ template<class T, class K = unsigned long int>
 		itree(const T &value, const K &newKey);
 		itree(const itree &otherTree);
 		~itree();
-		itree &operator=(const itree &otherTree);
+		basic_tree<T,K> &operator=(const basic_tree<T,K> &otherTree);
 		const T &search(const K &searchKey);
 	protected:
 		branch &climb(const K &_key);

@@ -16,7 +16,7 @@ namespace sktech {
 		btree(const T &value, const K &newKey);
 		btree(const btree &otherTree);
 		~btree();
-		btree &operator=(const btree &otherTree);
+		basic_tree<T,K> &operator=(const basic_tree<T,K> &otherTree);
 		const T &search(const K &searchKey);
 	private:
 		branch &climb(const branch *nextBranch, const K &_key);

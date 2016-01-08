@@ -25,7 +25,7 @@ template<class T, class K = unsigned long int>
 		basic_tree<T,K>::~basic_tree();
 	}
 	template<class T, class K = unsigned long int>
-	itree<T,K> &itree<T,K>::operator=(const itree<T,K> &otherTree) {
+	basic_tree<T,K> &itree<T,K>::operator=(const basic_tree<T,K> &otherTree) {
 		return basic_tree<T,K>::operator=(otherTree);
 	}
 	template<class T, class K = unsigned long int>
