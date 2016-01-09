@@ -32,6 +32,7 @@ template<class T, class K = unsigned long int>
 	const T &itree<T,K>::search(const K &searchKey) {
 		return *(climb(searchKey).val);
 	}
+	//TODO: Figure out why eclipse has this as a syntax error
 	template<class T, class K = unsigned long int>
 	basic_tree<T,K>::branch &itree<T,K>::climb(const K &_key) {
 		branch<T,K> *current = root;
