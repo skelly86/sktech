@@ -14,7 +14,7 @@ template<class T, class K = unsigned long int>
 	}
 	template<class T, class K = unsigned long int>
 	itree<T,K>::itree(const T &value, const K &newKey) {
-		baisc_tree<T,K>::basic_tree(value, newKey);
+		basic_tree<T,K>::basic_tree(value, newKey);
 	}
 	template<class T, class K = unsigned long int>
 	itree<T,K>::itree(const itree<T,K> &otherTree) {
@@ -34,7 +34,7 @@ template<class T, class K = unsigned long int>
 	}
 	//TODO: Figure out why eclipse has this as a syntax error
 	template<class T, class K = unsigned long int>
-	basic_tree<T,K>::branch &itree<T,K>::climb(const K &_key) {
+	basic_tree<T,K>::branch<T,K> &itree<T,K>::climb(const K &_key) {
 		branch<T,K> *current = root;
 		while(current != NULL)
 			if(_key == current->key)
