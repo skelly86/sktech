@@ -34,8 +34,8 @@ template<class T, class K = unsigned long int>
 	}
 	//TODO: Figure out why eclipse has this as a syntax error
 	template<class T, class K = unsigned long int>
-	basic_tree<T,K>::branch &btree<T,K>::climb
-	(const branch<T,K> *nextBranch, const K &_key) {
+	basic_tree<T,K>::branch<T,K> &btree<T,K>::climb
+	(const branch<T,K> *&nextBranch, const K &_key) {
 		if(*nextBranch == _key)
 			return *nextBranch;
 		else if(*nextBranch < _key)
