@@ -27,7 +27,7 @@ namespace sktech {
 		const unsigned long int max()const;
 		void copy(const array &otherArray);
 		void clear();
-		void resize(unsigned long int newSize);
+		void resize(unsigned long int newSize, unsigned long int newMax = newSize);
 		void push_back(const T &newVal);
 		void push_front(const T &newVal);
 		void pop_back();

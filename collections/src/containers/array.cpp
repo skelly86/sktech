@@ -70,6 +70,7 @@ namespace sktech {
 		for(unsigned long int i = 0; i < otherArray._size; i++)
 			vals[i] = otherArray[i];
 		_size = otherArray._size;
+		_max = otherArray._max;
 		_front = otherArray._front;
 		_back = otherArray._back;
 	}
@@ -80,11 +81,11 @@ namespace sktech {
 				vals[i] = T();
 			delete [] vals;
 			vals = NULL;
-			_size = _front = _back = 0;
+			_size = _max = _front = _back = 0;
 		}
 	}
 	template<class T>
-	void array<T>::resize(unsigned long int newSize) {
+	void array<T>::resize(unsigned long int newSize, unsigned long int newMax = newSize) {
 		T *newArray = new T[newSize];
 		if(!empty()) {
 			T *oldArray = vals;
@@ -94,6 +95,7 @@ namespace sktech {
 		}
 		vals = newArray;
 		_size = newSize;
+		_max = newMax == newSize ? newMax : newSize;
 	}
 	template<class T>
 	void array<T>::push_back(const T &newVal) {
