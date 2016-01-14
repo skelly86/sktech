@@ -34,6 +34,7 @@ namespace sktech {
 		const T &back()const;
 	private:
 		T *vals;
+		//TODO: set up _max variable in structure
 		unsigned long int _size, _front, _back;
 	};
 }
