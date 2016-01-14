@@ -10,10 +10,25 @@
 namespace sktech {
 	template<class T>
 	array<T>::array()
-	: vals(NULL), _size(0), _front(0), _back(0) {}
+	: vals(NULL),
+	  _size(0),
+	  _max(0),
+	  _front(0),
+	  _back(0) {}
 	template<class T>
-	array<T>::array(unsigned int newSize)
-	: _front(0), _back(0), vals(new T[newSize]), _size(newSize){}
+	array<T>::array(unsigned long int newSize)
+	: _front(0),
+	  _back(0),
+	  vals(new T[newSize]),
+	  _size(newSize),
+	  _max(newSize) {}
+	template<class T>
+	array<T>::array(unsigned long int newSize, unsigned long int newMax)
+	: _front(0),
+	  _back(0),
+	  _max(newSize == newMax ? newMax : newSize),
+	  vals(new T[newSize]),
+	  _size(newSize) {}
 	template<class T>
 	array<T>::array(const array<T> &otherArray) {
 		copy(otherArray);

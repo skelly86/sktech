@@ -14,15 +14,20 @@ namespace sktech {
 	public:
 		stack()
 			:values(NULL){}
-		//TODO: set up so size goes to max
 		stack(unsigned long int size)
 			:values(new C(size)){}
+		stack(unsigned long int size, unsigned long int max)
+			:values(new C(size, max)){}
 		stack(const stack &otherStack)
 			:values(NULL){copy(otherStack);}
 		~stack()
 			{delete values;}
 		stack &operator=(const stack &otherStack)
 			{if(this != *otherStack)copy(otherStack);return *this;}
+		const unsigned long int size()const
+			{return values->size();}
+		const unsigned long int max()const
+			{return values->max;}
 		void copy(const stack &otherStack)
 			{if(values != NULL)delete values;
 			values = new C(otherStack);}

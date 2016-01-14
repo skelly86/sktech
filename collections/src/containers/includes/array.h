@@ -15,7 +15,8 @@ namespace sktech {
 	class array {
 	public:
 		array();
-		array(unsigned int newSize);
+		array(unsigned long int newSize);
+		array(unsigned long int newSize, unsigned long int newMax)
 		array(const array &otherArray);
 		~array();
 		array &operator=(const array &otherArray);
@@ -23,6 +24,7 @@ namespace sktech {
 		bool empty();
 		bool full();
 		const unsigned long int size()const;
+		const unsigned long int max()const;
 		void copy(const array &otherArray);
 		void clear();
 		void resize(unsigned long int newSize);
@@ -34,8 +36,7 @@ namespace sktech {
 		const T &back()const;
 	private:
 		T *vals;
-		//TODO: set up _max variable in structure
-		unsigned long int _size, _front, _back;
+		unsigned long int _size, _max, _front, _back;
 	};
 }
 #endif /* SK_ARRAY_H_ */
