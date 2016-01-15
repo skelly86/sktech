@@ -1,48 +1,48 @@
 /*
- * stack.h
+ * queue.h
  *
- *  Created on: Jan 12, 2016
+ *  Created on: Jan 14, 2016
  *      Author: Shauna
  */
 
-#ifndef SRC_STACK_H_
-#define SRC_STACK_H_
+#ifndef SRC_QUEUE_H_
+#define SRC_QUEUE_H_
 #include"containers/array.cpp"
 namespace sktech {
 	template<class T, class C = array<T>>
-	class stack {
+	class queue {
 	public:
-		stack()
+		queue()
 			:values(NULL){}
-		stack(unsigned long int size)
+		queue(unsigned long int size)
 			:values(new C(size)){}
-		stack(unsigned long int size, unsigned long int max)
+		queue(unsigned long int size, unsigned long int max)
 			:values(new C(size, max)){}
-		stack(const stack &otherStack)
-			:values(NULL){copy(otherStack);}
-		~stack()
+		queue(const queue &otherqueue)
+			:values(NULL){copy(otherqueue);}
+		~queue()
 			{delete values;}
-		stack &operator=(const stack &otherStack)
-			{if(this != *otherStack)copy(otherStack);return *this;}
+		queue &operator=(const queue &otherqueue)
+			{if(this != *otherqueue)copy(otherqueue);return *this;}
 		T &operator[](unsigned long int n)
 			{return *(values[n]);}
 		const unsigned long int size()const
 			{return values->size();}
 		const unsigned long int max()const
 			{return values->max();}
-		void copy(const stack &otherStack)
+		void copy(const queue &otherqueue)
 			{if(values != NULL)delete values;
-			values = new C(otherStack);}
+			values = new C(otherqueue);}
 		void resize(unsigned long int size)
 			{values->resize(size);}
 		void push(const T &newTop)
 			{values->push_back(newTop);}
 		void pop()
-			{values->pop_back();}
-		const T &top()const
-			{return values->back();}
+			{values->pop_front();}
+		const T &front()const
+		{return values->front();}
 	private:
 		C *values;
 	};
 }
-#endif /* SRC_STACK_H_ */
+#endif /* SRC_QUEUE_H_ */
