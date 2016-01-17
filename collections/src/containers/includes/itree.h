@@ -5,7 +5,6 @@
  *      Author: Shauna
  *      Description:	Binary search tree with an iterated search algorithm
  */
-
 #ifndef ITREE_H_
 #define ITREE_H_
 #include"abstracts/basic_tree.cpp"

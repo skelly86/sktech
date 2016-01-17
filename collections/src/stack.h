@@ -4,7 +4,6 @@
  *  Created on: Jan 12, 2016
  *      Author: Shauna
  */
-
 #ifndef SRC_STACK_H_
 #define SRC_STACK_H_
 #include"containers/array.cpp"
@@ -22,17 +21,14 @@ namespace sktech {
 			:values(NULL){copy(otherStack);}
 		~stack()
 			{delete values;}
-		stack &operator=(const stack &otherStack)
-			{if(this != *otherStack)copy(otherStack);return *this;}
+		stack &operator=(const stack &otherStack);
 		T &operator[](unsigned long int n)
 			{return *(values[n]);}
 		const unsigned long int size()const
 			{return values->size();}
 		const unsigned long int max()const
 			{return values->max();}
-		void copy(const stack &otherStack)
-			{if(values != NULL)delete values;
-			values = new C(otherStack);}
+		void copy(const stack &otherStack);
 		void resize(unsigned long int size)
 			{values->resize(size);}
 		void push(const T &newTop)
@@ -44,5 +40,18 @@ namespace sktech {
 	private:
 		C *values;
 	};
+	template<class T, class C = array<T>>
+	stack<T,C> &stack<T,C>::operator=(const stack &otherStack) {
+		if(this != *otherStack)
+			copy(otherStack);
+		return *this;
+	}
+	template<class T, class C = array<T>>
+	void stack<T,C>::copy(const stack &otherStack) {
+		if(values != NULL)
+			delete values;
+		values = new C(otherStack);
+
+	}
 }
 #endif /* SRC_STACK_H_ */

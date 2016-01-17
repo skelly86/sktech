@@ -4,7 +4,6 @@
  *  Created on: Jan 14, 2016
  *      Author: Shauna
  */
-
 #ifndef SRC_QUEUE_H_
 #define SRC_QUEUE_H_
 #include"containers/array.cpp"
@@ -22,17 +21,14 @@ namespace sktech {
 			:values(NULL){copy(otherqueue);}
 		~queue()
 			{delete values;}
-		queue &operator=(const queue &otherqueue)
-			{if(this != *otherqueue)copy(otherqueue);return *this;}
+		queue &operator=(const queue &otherqueue);
 		T &operator[](unsigned long int n)
 			{return *(values[n]);}
 		const unsigned long int size()const
 			{return values->size();}
 		const unsigned long int max()const
 			{return values->max();}
-		void copy(const queue &otherqueue)
-			{if(values != NULL)delete values;
-			values = new C(otherqueue);}
+		void copy(const queue &otherqueue);
 		void resize(unsigned long int size)
 			{values->resize(size);}
 		void push(const T &newTop)
@@ -44,5 +40,17 @@ namespace sktech {
 	private:
 		C *values;
 	};
+	template<class T, class C = array<T>>
+	queue<T,C> &queue<T,C>::operator=(const queue &otherqueue) {
+		if(this != *otherqueue)
+			copy(otherqueue);
+		return *this;
+	}
+	template<class T, class C = array<T>>
+	void queue<T,C>::copy(const queue &otherqueue){
+		if(values != NULL)
+			delete values;
+		values = new C(otherqueue);
+	}
 }
 #endif /* SRC_QUEUE_H_ */
