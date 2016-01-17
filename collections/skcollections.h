@@ -8,4 +8,5 @@
 #include"src/containers/btree.cpp"
 #include"src/containers/itree.cpp"
 #include"src/stack.h"
+#include"src/queue.h"
 #endif
