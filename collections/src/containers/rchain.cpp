@@ -47,18 +47,18 @@ namespace sktech {
 		}
 	}
 	template<class T>
-	rchain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
+	basic_chain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
 		if(this != *otherChain)
 			copy(otherChain);
 		return *this;
 	}
 	template<class T>
 	T &rchain<T>::operator[](unsigned long int n) {
-		if(n > basic_chain<T>::_size)
+		if(n > _size)
 			throw n;
-		if(n > basic_chain<T>::_size/2)
-			return left(basic_chain<T>::lastP, basic_chain<T>::_size - 1, n);
-		return right(basic_chain<T>::firstP, 0, n);
+		if(n > _size / 2)
+			return left(lastP, _size - 1, n);
+		return right(firstP, 0, n);
 	}
 	template<class T>
 	bool rchain<T>::grow(unsigned long int size,

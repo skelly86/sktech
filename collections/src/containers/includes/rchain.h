@@ -16,7 +16,9 @@ namespace sktech{
 		virtual ~rchain();
 		void copy(const basic_chain<T> &otherChain);
 		void clear();
-		rchain<T> &operator=(const basic_chain<T> &otherChain);
+		//TODO: implement resize function, and incorporate in chain<T>
+		void resize(unsigned long int newSize);
+		basic_chain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	private:
 		bool grow(unsigned long int size, const basic_chain<T> &otherChain = NULL,

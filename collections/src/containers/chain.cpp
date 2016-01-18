@@ -53,8 +53,8 @@ namespace sktech {
 	}
 	template<class T>
 	void chain<T>::clear() {
-		while(!basic_chain<T>::empty())
-			basic_chain<T>::pop_back();
+		while(!empty())
+			pop_back();
 		_max = 0;
 	}
 	template<class T>
