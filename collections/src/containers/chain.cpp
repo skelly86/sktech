@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 9, 2015
  *      Author: shauna
+ *      TODO: overload function resize() to take additional arguments
  */
 #ifndef CHAIN_CPP_
 #define CHAIN_CPP_
@@ -50,6 +51,13 @@ namespace sktech {
 			clear();
 		for(unsigned long int i = 0; i < otherChain.size(); i++)
 			push_back(otherChain[i]);
+	}
+	template<class T>
+	void chain<T>::resize(unsigned long int newSize) {
+		if(_max < newSize)
+			_max = newSize;
+		while(_size < newSize)
+			push_back(T());
 	}
 	template<class T>
 	void chain<T>::clear() {

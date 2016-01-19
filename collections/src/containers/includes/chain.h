@@ -3,6 +3,7 @@
  *
  *  Created on: Feb 9, 2015
  *      Author: shauna
+ *      TODO: overload function resize() to take additional arguments
  */
 #ifndef CHAIN_H_
 #define CHAIN_H_
@@ -32,6 +33,7 @@ namespace sktech {
 		virtual ~chain();
 		void clear();
 		void copy(const basic_chain<T> &otherChain);
+		void resize(unsigned long int newSize);
 		basic_chain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	private:

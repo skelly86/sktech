@@ -1,5 +1,6 @@
 /*
  * @author: Shauna Kelly
+ * TODO: overload function resize() to take additional arguments
  */
 #ifndef RCHAIN_CPP_
 #define RCHAIN_CPP_
@@ -47,6 +48,12 @@ namespace sktech {
 		}
 	}
 	template<class T>
+	void rchain<T>::resize(unsigned long int newSize) {
+		if(_max < newSize)
+			_max = newSize;
+			grow(newSize - _size);
+	}
+	template<class T>
 	basic_chain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
 		if(this != *otherChain)
 			copy(otherChain);
@@ -62,17 +69,15 @@ namespace sktech {
 	}
 	template<class T>
 	bool rchain<T>::grow(unsigned long int size,
-			const basic_chain<T> &otherChain = NULL,
-			unsigned long int index = 0) {
-		//Only used for initialization and assignment
+			const basic_chain<T> &otherChain = NULL) {
 		if(full())
 			return false;
-		if(index + 1 == size) {
+		if(_size != size) {
 			if(&otherChain == NULL)
 				push_back(T());
 			else
-				push_back(otherChain[index]);
-			return grow(size, otherChain, index + 1);
+				push_back(otherChain[_size + 1]);
+			return grow(size, otherChain);
 		}
 		return true;
 	}
