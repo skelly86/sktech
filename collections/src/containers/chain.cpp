@@ -60,6 +60,18 @@ namespace sktech {
 			push_back(T());
 	}
 	template<class T>
+	void chain<T>::resize(unsigned long int args, ...) {
+
+	}
+	template<class T>
+	void chain<T>::pop_front(unsigned long int args, ...) {
+
+	}
+	template<class T>
+	void chain<T>::pop_back(unsigned long int args, ...) {
+
+	}
+	template<class T>
 	void chain<T>::clear() {
 		while(!empty())
 			pop_back();

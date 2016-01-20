@@ -54,6 +54,18 @@ namespace sktech {
 			grow(newSize - _size);
 	}
 	template<class T>
+	void rchain<T>::resize(unsigned long int args, ...) {
+
+	}
+	template<class T>
+	void rchain<T>::pop_front(unsigned long int args, ...) {
+
+	}
+	template<class T>
+	void rchain<T>::pop_back(unsigned long int args, ...) {
+
+	}
+	template<class T>
 	basic_chain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
 		if(this != *otherChain)
 			copy(otherChain);
