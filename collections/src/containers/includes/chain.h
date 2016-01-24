@@ -35,11 +35,13 @@ namespace sktech {
 		void copy(const basic_chain<T> &otherChain);
 		void resize(unsigned long int newSize);
 		void resize(unsigned long int args, ...);
-		void pop_front(unsigned long int args, ...);
-		void pop_back(unsigned long int args, ...);
+		void push_front(unsigned long int args, ...);
+		void push_back(unsigned long int args, ...);
 		basic_chain<T> &operator=(const basic_chain<T> &otherChain);
 		T &operator[](unsigned long int n);
 	private:
+		// TODO: implement this function
+		void handle_args(unsigned long int argc, va_list &argv);
 		T &traverse(unsigned long int n, bool lower);
 	};
 }

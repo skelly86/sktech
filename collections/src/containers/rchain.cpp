@@ -43,7 +43,7 @@ namespace sktech {
 		if(empty())
 			_max = 0;
 		else {
-			pop_front();
+			basic_chain<T>::pop_front();
 			clear();
 		}
 	}
@@ -58,11 +58,11 @@ namespace sktech {
 
 	}
 	template<class T>
-	void rchain<T>::pop_front(unsigned long int args, ...) {
+	void rchain<T>::push_front(unsigned long int args, ...) {
 
 	}
 	template<class T>
-	void rchain<T>::pop_back(unsigned long int args, ...) {
+	void rchain<T>::pushS_back(unsigned long int args, ...) {
 
 	}
 	template<class T>
@@ -116,7 +116,7 @@ namespace sktech {
 			unsigned long int index = 0) {
 		if(index == new_size)
 			return true;
-		push_back(va_arg(newChain,T));
+		basic_chain<T>::push_back(va_arg(newChain,T));
 		return varAdd(newChain, new_size, index + 1);
 	}
 }

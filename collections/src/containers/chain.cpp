@@ -61,20 +61,34 @@ namespace sktech {
 	}
 	template<class T>
 	void chain<T>::resize(unsigned long int args, ...) {
-
+		if(_max < _size + args)
+			_max = _size + args;
+		va_list newChain;
+		va_start(newChain, args);
+		for(int i = 0; i < args; i++)
+			push_back(va_arg(newChain, T));
+		va_end(newChain);
 	}
 	template<class T>
-	void chain<T>::pop_front(unsigned long int args, ...) {
-
+	void chain<T>::push_front(unsigned long int args, ...) {
+		va_list newChain;
+		va_start(newChain, args);
+		for(int i = 0; i < args; i++)
+			push_front(va_arg(newChain, T));
+		va_end(newChain);
 	}
 	template<class T>
-	void chain<T>::pop_back(unsigned long int args, ...) {
-
+	void chain<T>::push_back(unsigned long int args, ...) {
+		va_list newChain;
+		va_start(newChain, new_size);
+		for(int i = 0; i < new_size; i++)
+			push_back(va_arg(newChain, T));
+		va_end(newChain);
 	}
 	template<class T>
 	void chain<T>::clear() {
 		while(!empty())
-			pop_back();
+			basic_chain<T>::pop_back();
 		_max = 0;
 	}
 	template<class T>
