@@ -31,10 +31,7 @@ namespace sktech {
 	chain<T>::chain(unsigned long int new_size, ...) {
 		basic_chain<T>::basic_chain();
 		va_list newChain;
-		va_start(newChain, new_size);
-		for(int i = 0; i < new_size; i++)
-			push_back(va_arg(newChain, T));
-		va_end(newChain);
+		handle_args(new_size, newChain, true);
 	}
 	template<class T>
 	chain<T>::chain(const basic_chain<T> &otherChain) {
@@ -64,26 +61,17 @@ namespace sktech {
 		if(_max < _size + args)
 			_max = _size + args;
 		va_list newChain;
-		va_start(newChain, args);
-		for(int i = 0; i < args; i++)
-			push_back(va_arg(newChain, T));
-		va_end(newChain);
+		handle_args(args, newChain, true);
 	}
 	template<class T>
 	void chain<T>::push_front(unsigned long int args, ...) {
 		va_list newChain;
-		va_start(newChain, args);
-		for(int i = 0; i < args; i++)
-			push_front(va_arg(newChain, T));
-		va_end(newChain);
+		handle_args(args, newChain);
 	}
 	template<class T>
 	void chain<T>::push_back(unsigned long int args, ...) {
 		va_list newChain;
-		va_start(newChain, new_size);
-		for(int i = 0; i < new_size; i++)
-			push_back(va_arg(newChain, T));
-		va_end(newChain);
+		handle_args(args, newChain, true);
 	}
 	template<class T>
 	void chain<T>::clear() {
@@ -105,6 +93,24 @@ namespace sktech {
 			return traverse(n, true);
 		else
 			return traverse(n, false);
+	}
+	template<class T>
+	void chain<T>::handle_args(unsigned long int argc,
+			va_list &argv,
+			bool end = 0x00) {
+		va_start(argv, argc);
+		unsigned long int i = 0;
+		if(end)
+			while(i < argc) {
+				push_front(va_arg(argv, T));
+				i++;
+			}
+		else
+			while(i < argc) {
+				push_back(va_arg(argv, T));
+				i++;
+			}
+		va_end(argv);
 	}
 	template<class T>
 	T &chain<T>::traverse(unsigned long int n, bool lower) {

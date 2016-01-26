@@ -41,7 +41,9 @@ namespace sktech {
 		T &operator[](unsigned long int n);
 	private:
 		// TODO: implement this function
-		void handle_args(unsigned long int argc, va_list &argv);
+		void handle_args(unsigned long int argc,
+			va_list &argv,
+			bool end = 0x00);
 		T &traverse(unsigned long int n, bool lower);
 	};
 }
