@@ -30,5 +30,7 @@ namespace sktech{
 				unsigned long int index);
 		bool varAdd(va_list &newChain, unsigned long int new_size,
 				unsigned long int index = 0);
+		bool varAddFront(va_list &newChain, unsigned long int new_size,
+						unsigned long int index = 0);
 	};
 }

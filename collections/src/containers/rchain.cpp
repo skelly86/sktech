@@ -109,7 +109,6 @@ namespace sktech {
 			return *(nextNode->val);
 		return right(nextNode->rightP, i + 1, index);
 	}
-
 	template<class T>
 	bool rchain<T>::varAdd(va_list &newChain,
 			unsigned long int new_size,
@@ -117,6 +116,15 @@ namespace sktech {
 		if(index == new_size)
 			return true;
 		basic_chain<T>::push_back(va_arg(newChain,T));
+		return varAdd(newChain, new_size, index + 1);
+	}
+	template<class T>
+	bool rchain<T>::varAddFront(va_list &newChain,
+			unsigned long int new_size,
+			unsigned long int index = 0) {
+		if(index == new_size)
+			return true;
+		basic_chain<T>::push_front(va_arg(newChain,T));
 		return varAdd(newChain, new_size, index + 1);
 	}
 }
