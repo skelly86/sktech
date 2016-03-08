@@ -53,17 +53,27 @@ namespace sktech {
 			_max = newSize;
 			grow(newSize - _size);
 	}
+	// TODO: fix these functions.
 	template<class T>
 	void rchain<T>::resize(unsigned long int args, ...) {
-
+		va_list newVals;
+		va_start(newVals, args);
+		varAdd(newVals, args + _size, _size - 1);
+		va_end();
 	}
 	template<class T>
 	void rchain<T>::push_front(unsigned long int args, ...) {
-
+		va_list newVals;
+		va_start(newVals, args);
+		varAddFront(newVals, args);
+		va_end();
 	}
 	template<class T>
-	void rchain<T>::pushS_back(unsigned long int args, ...) {
-
+	void rchain<T>::push_back(unsigned long int args, ...) {
+		va_list newVals;
+		va_start(newVals, args);
+		varAddBack(newVals, args);
+		va_end();
 	}
 	template<class T>
 	basic_chain<T> &rchain<T>::operator=(const basic_chain<T> &otherChain) {
@@ -115,17 +125,27 @@ namespace sktech {
 			unsigned long int index = 0) {
 		if(index == new_size)
 			return true;
-		basic_chain<T>::push_back(va_arg(newChain,T));
+		push_back(va_arg(newChain,T));
 		return varAdd(newChain, new_size, index + 1);
 	}
+	//TODO: fix this
 	template<class T>
 	bool rchain<T>::varAddFront(va_list &newChain,
-			unsigned long int new_size,
+			unsigned long int args,
 			unsigned long int index = 0) {
-		if(index == new_size)
+		if(args == index)
 			return true;
-		basic_chain<T>::push_front(va_arg(newChain,T));
-		return varAdd(newChain, new_size, index + 1);
+		push_front(va_arg(newChain, T));
+		return varAdd(newChain, args, index + 1);
+	}
+	template<class T>
+	bool rchain<T>::varAddBack(va_list &newChain,
+			unsigned long int args,
+			unsigned long int index = 0) {
+		if(args == index)
+			return true;
+		push_back(va_arg(newChain, T));
+		return varAdd(newChain, args, index + 1);
 	}
 }
 #endif
