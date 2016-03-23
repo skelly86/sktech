@@ -7,6 +7,12 @@
 #ifndef NULL
 #define NULL 0
 #endif
+#ifndef true
+#define true 0x01
+#endif
+#ifndef false
+#define false 0x00
+#endif
 #ifndef NODE_H_
 #define NODE_H_
 namespace sktech{
