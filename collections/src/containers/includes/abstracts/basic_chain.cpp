@@ -28,11 +28,11 @@ namespace sktech {
 	}
 	template<class T>
 	void basic_chain<T>::pop_front() {
-		remove(firstP, 0x01);
+		remove(firstP, true);
 	}
 	template<class T>
 	void basic_chain<T>::pop_back() {
-		remove(lastP, 0x00);
+		remove(lastP, false);
 	}
 	template<class T>
 	const unsigned long int basic_chain<T>::size() const {

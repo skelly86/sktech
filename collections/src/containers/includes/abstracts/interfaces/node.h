@@ -8,10 +8,10 @@
 #define NULL 0
 #endif
 #ifndef true
-#define true 0x01
+#define true 0b1
 #endif
 #ifndef false
-#define false 0x00
+#define false 0b0
 #endif
 #ifndef NODE_H_
 #define NODE_H_

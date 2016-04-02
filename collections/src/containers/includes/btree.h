@@ -18,7 +18,7 @@ namespace sktech {
 		basic_tree<T,K> &operator=(const basic_tree<T,K> &otherTree);
 		const T &search(const K &searchKey);
 	private:
-		branch &climb(const branch *&nextBranch, const K &_key);
+		branch<T,K> &climb(const branch *&nextBranch, const K &_key);
 	};
 }
 #endif /* BTREE_H_ */
