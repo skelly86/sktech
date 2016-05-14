@@ -23,6 +23,7 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-src \
-src/includes \
+src/containers \
+src/containers/includes/abstracts \
+src/containers/includes/abstracts/interfaces \
 

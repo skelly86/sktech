@@ -20,6 +20,7 @@ namespace sktech {
 		virtual T &operator[](unsigned long int n) = 0;
 		virtual void clear() = 0;
 		virtual void copy(const basic_chain &otherChain) = 0;
+		virtual void sort() = 0;
 		virtual void push_back(const T &newVal)const;
 		virtual void push_front(const T &newVal)const;
 		virtual const T &front()const;
